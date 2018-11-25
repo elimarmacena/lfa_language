@@ -1,41 +1,41 @@
 grammar PostHtml;
 
 @header {
-import posthtml.posthtml.*;
+import posthtml.workload.*;
+import static posthtml.workload.*;
 }
 
-init returns [String result]
+init returns [Sketch result]
     : d1=draw        {$result = $d1.result;}
     ;
 
-draw returns [String result]
+draw returns [Sketch result]
     :begin
      b1=block 
      end                {$result = $b1.result;}
     ;
 
-begin returns [String result]
+begin returns [Sketch result]
     : b1 = BEGIN        {$result = $b1.text;}
     ;
 
-end returns [String result]
+end returns [Sketch result]
     : e1 = END          {$result = $e1.text}
     ;
 
-block returns [String result]
-    :{$result = "bloco;";}
-    p1 = property      {$result = $result + $p1.result+"; \n";}
-    (s1 = shape         {$result = $result + $s1.result+"\n"})*
+block returns [Sketch result]
+    :p1 = property      {$result = $result + $p1.result;}
+    (s1 = shape         {$result = $result + $s1.result;})*
     ;
 
-shape returns [String result]
+shape returns [Sketch result]
     : t1 = type         {$result = $t1.result+";";}
     ;
 
-type returns [String result]
+type returns [Sketch result]
     :(
-        SQUARE                  {$result = SQUARE.text+";";}
-        | RECTANGLE             {$result = $RECTANGLE.text+";";}
+        SQUARE                  {$result = mkShape($SQUARE.text+;}
+        | RECTANGLE             {$result = $RECTANGLE.text+;}
         | OVAL                  {$result = $OVAL.text+";";} 
         | STAR                  {$result = $STAR.text+";";}
         | PENTAGON              {$result = $PENTAGON.text+";";}
@@ -53,39 +53,35 @@ type returns [String result]
     p1 = property      {$result = $result + $p1.result;}
     ;
 
-property returns [String result]
-    : a1 = height       {$result = $a1.result;}
-      l1 = width      {$result = $result + $l1.result;}
-      c1 = color          {$result = $result + $c1.result;}
+property returns [Sketch result]
+    : a1 = height      
+      l1 = width      
+      c1 = color          {$result = ;}
     ;
 
-color returns [String result]
+color returns [Sketch result]
     :(
-        RED        {$result = "background-color:#FF0000";}
-        | BLUE          {$result = "background-color:#0000FF";}
-        | BLACK         {$result = "background-color:#000000";}
-        | PURPLE          {$result = "background-color:#A020F0";}
-        | YELLOW       {$result = "background-color:#FFFF00";} 
-        | PINK          {$result = "background-color:#EE49EE";} 
-        | GREEN         {$result = "background-color:#228B22";} 
-        | WHITE        {$result = "background-color:#ffffff";}
+        RED                 {$result = mkColor($RED.text);}
+        | BLUE              {$result = mkColor($BLUE.text);}
+        | BLACK             {$result = mkColor($BLACK.text);}
+        | PURPLE            {$result = mkColor($PURPLE.text);}
+        | YELLOW            {$result = mkColor($YELLOW.text);} 
+        | PINK              {$result = mkColor($PINK.text);} 
+        | GREEN             {$result = mkColor($GREEN.text);} 
+        | WHITE             {$result = mkColor($WHITE.text);}
      )
     ;
 
-height returns [String result]
-    : n1 = number       {$result = "height:"+$n1.result+";";}
+height returns [Sketch result]
+    : h1 = number       {$result = $h1.result;}
     ;
 
-width returns [String result]
-    : n1 = number       {$result = "width:"+$n1.result+";";}
+width returns [Sketch result]
+    : y1 = number       {$result = $y1.result;}
     ;
 
-side returns [String result]
-    : n1 = number       {$result = "side:"+$n1.result+";";}
-    ;
-
-number returns [String result]
-    : INTEGER {$result = $INTEGER.text;}
+number returns [Sketch result]
+    : INTEGER           {$result = mkNumber(Integer.parseInt($INTEGER.text));}
     ;
 
 
