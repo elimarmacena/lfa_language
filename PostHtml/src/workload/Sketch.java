@@ -21,4 +21,16 @@ public abstract class Sketch {
     public static Sketch mkColor(String colorName){
         return new Color(colorName);
     }
+    
+    public static Sketch mkProperty(Sketch height, Sketch width, Sketch color){
+        return new Property(((Number)height).value, ((Number)width).value, ((Color)color).color);
+    }
+    
+    public static Sketch mkProperty(String shapeName){
+        return new Shape(shapeName);
+    }
+    
+    public static Sketch mkDesign(Sketch shape,Sketch prop){
+        return new Desing(((Shape)shape), ((Property)prop));
+    }
 }

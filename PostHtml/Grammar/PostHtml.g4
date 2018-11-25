@@ -10,53 +10,51 @@ init returns [Sketch result]
     ;
 
 draw returns [Sketch result]
-    :begin
+    :BEGIN
      b1=block 
-     end                {$result = $b1.result;}
+     END                {$result = $b1.result;}
     ;
 
-begin returns [Sketch result]
-    : b1 = BEGIN        {$result = $b1.text;}
+
+block returns [List<Sketch> result]
+@init{
+      $result = new LinkedList<Sketch>();
+}
+    :(
+        bd = design {$result.add($bd.result);}
+        SEMICOLON
+     )+
     ;
 
-end returns [Sketch result]
-    : e1 = END          {$result = $e1.text}
-    ;
-
-block returns [Sketch result]
-    :p1 = property      {$result = $result + $p1.result;}
-    (s1 = shape         {$result = $result + $s1.result;})*
+design returns [Sketch result]
+    :   ds1 = shape        
+        dp1 = property      {$result = mkDesing($ds1.result,$dp1.result;}
     ;
 
 shape returns [Sketch result]
-    : t1 = type         {$result = $t1.result+";";}
+    : t1 = type         {$result = $t1.result;}
     ;
 
 type returns [Sketch result]
     :(
-        SQUARE                  {$result = mkShape($SQUARE.text+;}
-        | RECTANGLE             {$result = $RECTANGLE.text+;}
-        | OVAL                  {$result = $OVAL.text+";";} 
-        | STAR                  {$result = $STAR.text+";";}
-        | PENTAGON              {$result = $PENTAGON.text+";";}
-        | HEXAGON               {$result = $HEXAGON.text+";";} 
-        | OCTAGON               {$result = $OCTAGON.text+";";} 
-        | HEART                 {$result = $HEART.text+";";}
-        | INFINITE              {$result = $INFINITE.text+";";} 
-        | DIAMOND               {$result = $DIAMOND.text+";";} 
-        | YINYANG               {$result = $YINYANG.text+";";} 
-        | CIRCLE                {$result = $CIRCLE.text+";";}
-        | TRIANGLE              {$result = $TRIANGLE.text+";";} 
-        | TRAPEZIO              {$result = $TRAPEZIO.text+";";} 
-        | PARALLELOGRAM         {$result = $PARALLELOGRAM.text+";";}
+        SQUARE                  {$result = mkShape($SQUARE.text);}
+        | RECTANGLE             {$result = mkShape($RECTANGLE.text);}
+        | OVAL                  {$result = mkShape($OVAL.text);} 
+        | STAR                  {$result = mkShape($STAR.text);}
+        | PENTAGON              {$result = mkShape($PENTAGON.text);}
+        | HEXAGON               {$result = mkShape($HEXAGON.text);} 
+        | OCTAGON               {$result = mkShape($OCTAGON.text);} 
+        | HEART                 {$result = mkShape($HEART.text);}
+        | CIRCLE                {$result = mkShape($CIRCLE.text);}
+        | TRIANGLE              {$result = mkShape($TRIANGLE.text);} 
+        | TRAPEZIO              {$result = mkShape($TRAPEZIO.text);} 
     )
-    p1 = property      {$result = $result + $p1.result;}
     ;
 
 property returns [Sketch result]
-    : a1 = height      
-      l1 = width      
-      c1 = color          {$result = ;}
+    : ph1 = height      
+      wp1 = width      
+      pc1 = color          {$result = mkProperty($ph1.result,$wp1.result,$pc1.result);}
     ;
 
 color returns [Sketch result]
@@ -73,11 +71,11 @@ color returns [Sketch result]
     ;
 
 height returns [Sketch result]
-    : h1 = number       {$result = $h1.result;}
+    : nh1 = number       {$result = $nh1.result;}
     ;
 
 width returns [Sketch result]
-    : y1 = number       {$result = $y1.result;}
+    : wn1 = number       {$result = $wn1.result;}
     ;
 
 number returns [Sketch result]
@@ -88,7 +86,8 @@ number returns [Sketch result]
 BEGIN: 'begin';
 END: 'end';
 fragment DIGIT  : [0-9] ;
-INTEGER: [0-9]+;
+INTEGER: END+;
+SEMICOLON: ';';
 
 SQUARE: 'square';
 RECTANGLE: 'rectangle';
@@ -98,13 +97,9 @@ PENTAGON: 'pentagon';
 HEXAGON: 'hexagon';
 OCTAGON: 'octagon';
 HEART: 'heart';
-INFINITE: 'infinite';
-DIAMOND: 'diamond';
-YINYANG: 'yinyang';
 CIRCLE: 'CIRCLE';
 TRIANGLE: 'triangle';
 TRAPEZIO: 'trapezio';
-PARALLELOGRAM: 'parallelogram';
 
 RED: 'red';
 BLUE: 'blue';

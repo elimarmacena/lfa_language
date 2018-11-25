@@ -41,7 +41,7 @@ public class Color extends Sketch {
             this.color = "background-color: #ffffff";
         }
         else{
-            throw new RuntimeException("ERRO: incorrect color type.");
+            throw new RuntimeException("ERRO: color type not found.");
         }
     }
 
