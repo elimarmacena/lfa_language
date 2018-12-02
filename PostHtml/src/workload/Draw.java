@@ -11,13 +11,11 @@ import java.util.Map;
  *
  * @author elmr
  */
-public class Desing extends Sketch {
-    public final Shape shape;
-    public final Property prop;
+public class Draw extends Sketch {
+    private final Desing desing;
     
-    public Desing(Shape shape, Property prop){
-        this.shape = shape;
-        this.prop = prop;
+    public Draw(Sketch desing){
+        this.desing = (Desing)desing;
     }
     
     @Override
@@ -27,7 +25,8 @@ public class Desing extends Sketch {
     
     @Override
     public String toString(){
-        String output = String.format("%s (%d,%d,%s)", this.shape.value,this.prop.height,this.prop.width,this.prop.color);
+        String output = String.format("Draw(%s)", this.desing.toString());
         return output;
     }
+    
 }

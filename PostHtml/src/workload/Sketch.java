@@ -33,4 +33,8 @@ public abstract class Sketch {
     public static Sketch mkDesign(Sketch shape,Sketch prop){
         return new Desing(((Shape)shape), ((Property)prop));
     }
+    
+    public static Sketch mkDrawAssing(String drawName, Sketch draw){
+        return new DrawAssing(drawName, draw);
+    }
 }

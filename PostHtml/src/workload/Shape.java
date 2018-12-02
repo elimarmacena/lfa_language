@@ -49,6 +49,9 @@ public class Shape extends Sketch{
         else if (nameShape.equalsIgnoreCase("trapezio")){
             //html para trapezio
         }
+        else if(nameShape.equalsIgnoreCase("page")){
+            //html para definicao da pagina
+        }
         else{
             throw new RuntimeException("ERRO: shape type not found.");
         }

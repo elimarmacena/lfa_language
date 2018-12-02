@@ -6,31 +6,28 @@ import static posthtml.workload.*;
 import java.util.LinkedList;
 }
 
-init returns[Sketch result]: 
-    d1 = draw {$result = $d1.result;}
+init returns [Sketch result]: 
+    s1 = statement                                  {$result = $s1.result;}
+    ;
+
+statement returns [Sketch result]:
+     sa1 = drawassing                               {$result = $sa1.result;}
+    | d2 = draw                                     {$result = $d2.result;} /*chamada unica do desenho*/
+    ;
+
+drawassing returns [Sketch result]:
+    DRAWID IDENTITY GETS d1 = draw SEMICOLON       {$result = mkDrawAssing($IDENTITY.text,$d1.result;} /*declara variavel*/
     ;
 
 draw returns[Sketch result]:
-	BEGIN b1 = block END {$result = $b1.result;}
+	 dd1 = design                               {$result = $dd1.result;}
     ;
 
-block returns[List<Sketch> result]
-@init {
-  $result = new LinkedList<Sketch>();
-}
-    : 
-    ( 
-        bd = design {$result.add($bd.result);} 
-        SEMICOLON
-    )+
-    ;
 
 design returns[Sketch result]:
-	ds1 = shape 
-    dp1 = property 
-    {$result = mkDesing($ds1.result,$dp1.result;}
+	ds1 = shape dp1 = property                  {$result = mkDesing($ds1.result,$dp1.result;}
     ;
-
+ 
 shape returns[Sketch result]: 
     t1 = type {$result = $t1.result;}
     ;
@@ -47,6 +44,7 @@ type returns[Sketch result]:
 	| CIRCLE {$result = mkShape($CIRCLE.text);}
 	| TRIANGLE {$result = mkShape($TRIANGLE.text);}
 	| TRAPEZIO {$result = mkShape($TRAPEZIO.text);}
+        | PAGE {$result = mkShape($PAGE.text);}
     ;
 
 property returns[Sketch result]:
@@ -79,11 +77,15 @@ number returns[Sketch result]:
 	INTEGER {$result = mkNumber(Integer.parseInt($INTEGER.text));}
     ;
 
+
+DRAWID: 'skt' | 'SKT';
+IDENTITY: [_a-zA-Z][_a-zA-Z0-9]*;
 BEGIN: 'begin';
 END: 'end';
 fragment DIGIT: [0-9];
 INTEGER: DIGIT+;
 SEMICOLON: ';';
+GETS: '=';
 
 SQUARE: 'square';
 RECTANGLE: 'rectangle';
@@ -96,6 +98,7 @@ HEART: 'heart';
 CIRCLE: 'CIRCLE';
 TRIANGLE: 'triangle';
 TRAPEZIO: 'trapezio';
+PAGE: 'page';
 
 RED: 'red';
 BLUE: 'blue';
