@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -13,19 +15,21 @@ import java.util.Map;
  */
 public class Property extends Sketch {
     
-    public final int height;
-    public final int width;
+    public final double height;
+    public final double width;
     public final String color;
     
-    public Property(int height, int width, String color){
-        this.height = height;
+    public Property(double height, double width, String color){
+        this.height =  height;
         this.width = width;
         this.color = color;
     }
 
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        return this;
+    public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

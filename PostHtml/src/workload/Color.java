@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -46,8 +48,9 @@ public class Color extends Sketch {
     }
 
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        return this;
+    public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

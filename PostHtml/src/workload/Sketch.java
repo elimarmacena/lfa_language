@@ -11,22 +11,16 @@ import java.util.Map;
  *
  * @author elmr
  */
-public abstract class Sketch {
-    public abstract Sketch eval(Map<String,Sketch>ctx);
-    
-    public static Sketch mkNumber(int value){
-        return new Number(value);
-    }
-    
+public abstract class Sketch extends Expr {
     public static Sketch mkColor(String colorName){
         return new Color(colorName);
     }
     
-    public static Sketch mkProperty(Sketch height, Sketch width, Sketch color){
-        return new Property(((Number)height).value, ((Number)width).value, ((Color)color).color);
+    public static Sketch mkProperty(Numeric height, Numeric width, Sketch color){
+        return new Property(height.value, width.value, ((Color)color).color);
     }
     
-    public static Sketch mkProperty(String shapeName){
+    public static Sketch mkShape(String shapeName){
         return new Shape(shapeName);
     }
     

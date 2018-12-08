@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -56,10 +58,12 @@ public class Shape extends Sketch{
             throw new RuntimeException("ERRO: shape type not found.");
         }
     }
-    
+
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        return this;
+    public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+
     
 }

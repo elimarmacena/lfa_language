@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -21,15 +23,15 @@ public class DrawAssing extends Sketch{
     }
     
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        Sketch data = draw.eval(ctx);
-        ctx.put(drawName, data);
-        return data;
-    }
-    
-    @Override
     public String toString(){
         return String.format("skt %s = %s", this.drawName,this.draw.toString());
+    }
+
+    @Override
+    public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        Sketch data = draw.eval(ctx,fw,identLevel,changeCtx);
+        ctx.put(drawName, data);
+        return data;
     }
     
 }

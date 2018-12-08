@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -19,14 +21,15 @@ public class Draw extends Sketch {
     }
     
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        return this;
-    }
-    
-    @Override
     public String toString(){
         String output = String.format("Draw(%s)", this.desing.toString());
         return output;
     }
+
+    @Override
+    public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
