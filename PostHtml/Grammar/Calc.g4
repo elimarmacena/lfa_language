@@ -146,11 +146,8 @@ shape returns[Sketch result]:
 	SQUARE {$result = mkShape($SQUARE.text);}
 	| RECTANGLE {$result = mkShape($RECTANGLE.text);}
 	| OVAL {$result = mkShape($OVAL.text);}
-	| STAR {$result = mkShape($STAR.text);}
 	| PENTAGON {$result = mkShape($PENTAGON.text);}
-	| HEXAGON {$result = mkShape($HEXAGON.text);}
 	| OCTAGON {$result = mkShape($OCTAGON.text);}
-	| HEART {$result = mkShape($HEART.text);}
 	| CIRCLE {$result = mkShape($CIRCLE.text);}
 	| TRIANGLE {$result = mkShape($TRIANGLE.text);}
 	| TRAPEZIO {$result = mkShape($TRAPEZIO.text);}
@@ -220,11 +217,8 @@ GEQ:    '>=';
 SQUARE: 'square';
 RECTANGLE: 'rectangle';
 OVAL: 'oval';
-STAR: 'star';
 PENTAGON: 'pentagon';
-HEXAGON: 'hexagon';
 OCTAGON: 'octagon';
-HEART: 'heart';
 CIRCLE: 'CIRCLE';
 TRIANGLE: 'triangle';
 TRAPEZIO: 'trapezio';
