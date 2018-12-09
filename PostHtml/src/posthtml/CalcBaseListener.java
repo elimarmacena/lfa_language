@@ -1,9 +1,11 @@
-// Generated from C:\Users\joel-\Desktop\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
+// Generated from C:\Users\elmr\Documents\GITHUB\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
 package posthtml;
 
 import workload.Expr;
+import workload.Sketch;
 import workload.Operator;
 import static workload.Expr.*;
+import static workload.Sketch.*;
 import workload.Op;
 import java.util.LinkedList;
 
@@ -50,6 +52,32 @@ public class CalcBaseListener implements CalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterShape(@NotNull CalcParser.ShapeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitShape(@NotNull CalcParser.ShapeContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterColor(@NotNull CalcParser.ColorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitColor(@NotNull CalcParser.ColorContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterConj(@NotNull CalcParser.ConjContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -83,6 +111,19 @@ public class CalcBaseListener implements CalcListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitInicio(@NotNull CalcParser.InicioContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDraw(@NotNull CalcParser.DrawContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDraw(@NotNull CalcParser.DrawContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -154,6 +195,19 @@ public class CalcBaseListener implements CalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterDrawassing(@NotNull CalcParser.DrawassingContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDrawassing(@NotNull CalcParser.DrawassingContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterWhileExpr(@NotNull CalcParser.WhileExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -180,6 +234,19 @@ public class CalcBaseListener implements CalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterDesign(@NotNull CalcParser.DesignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDesign(@NotNull CalcParser.DesignContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterStatement(@NotNull CalcParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -187,6 +254,19 @@ public class CalcBaseListener implements CalcListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitStatement(@NotNull CalcParser.StatementContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterProperty(@NotNull CalcParser.PropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitProperty(@NotNull CalcParser.PropertyContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

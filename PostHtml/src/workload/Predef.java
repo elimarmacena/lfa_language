@@ -82,4 +82,27 @@ public class Predef {
         }
     };
     
+    /*
+    ============================================================================
+    FUNCAO RESPONSAVEL PARA DESENHAR LINAHS NO CANVAS, TRABALHA COM DOIS 
+    PARAMETROS
+    ============================================================================
+    */
+    public static final Function DRAWLINE = new Function(null){
+        @Override
+        public Expr apply(List<Expr> params){
+            if(params.size() != 2){
+                String msg = format(
+                        "Wrong number of arguments. Expecting 2; Found: %d.", 
+                        params.size());
+                throw new IllegalArgumentException(msg);
+
+            }
+            Numeric beginX = (Numeric) params.get(0);
+            Numeric endY = (Numeric) params.get(1);
+            String drawLine = String.format("var ctx = c.getContext(\"2d\");\n ctx.moveTo(0, 0);\n ctx.lineTo(%f, %f);\n ctx.stroke();", beginX,endY);
+            return UNIT;
+        }
+    };
+    
 }

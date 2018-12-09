@@ -16,8 +16,8 @@ public abstract class Sketch extends Expr {
         return new Color(colorName);
     }
     
-    public static Sketch mkProperty(Numeric height, Numeric width, Sketch color){
-        return new Property(height.value, width.value, ((Color)color).color);
+    public static Sketch mkProperty(Expr height, Expr width, Sketch color){
+        return new Property((Numeric)height, (Numeric)width, ((Color)color).color);
     }
     
     public static Sketch mkShape(String shapeName){

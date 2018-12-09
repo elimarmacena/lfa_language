@@ -2,8 +2,10 @@ grammar Calc;
 
 @header {
 import workload.Expr;
+import workload.Sketch;
 import workload.Operator;
 import static workload.Expr.*;
+import static workload.Sketch.*;
 import workload.Op;
 import java.util.LinkedList;
 }
@@ -54,10 +56,10 @@ sttmtSeq returns [List<Expr> sttmts]
     ;
 
 expr returns [Expr result]
-    : a=assign          {$result = $a.result;}
-    | e=bexpr           {$result = $e.result;}
-    | sa1 = drawassing  {$result = $sa1.result;}
+    : sa1 = drawassing  {$result = $sa1.result;}
     | d2 = draw         {$result = $d2.result;} /*chamada unica do desenho*/
+    | a=assign          {$result = $a.result;}
+    | e=bexpr           {$result = $e.result;}
     ;
 
 assign returns [Expr result]
@@ -129,7 +131,7 @@ argList returns [List<Expr> args]
 
 //POSTHTML EXCLUSIVE
 drawassing returns [Sketch result]:
-    DRAWID IDENT GETS d1 = draw SEMI       {$result = mkDrawAssing(IDENT.text,$d1.result;} /*declara variavel*/
+    DRAWID IDENT GETS d1 = draw       {$result = mkDrawAssing($IDENT.text,$d1.result);} /*declara variavel*/
     ;
 
 draw returns[Sketch result]:
@@ -137,14 +139,10 @@ draw returns[Sketch result]:
     ;
 
 design returns[Sketch result]:
-	ds1 = shape dp1 = property                  {$result = mkDesing($ds1.result,$dp1.result;}
+	ds1 = shape dp1 = property                  {$result = mkDesign($ds1.result,$dp1.result);}
     ;
  
-shape returns[Sketch result]: 
-    t1 = type {$result = $t1.result;}
-    ;
-
-type returns[Sketch result]:
+shape returns[Sketch result]:
 	SQUARE {$result = mkShape($SQUARE.text);}
 	| RECTANGLE {$result = mkShape($RECTANGLE.text);}
 	| OVAL {$result = mkShape($OVAL.text);}
@@ -156,14 +154,13 @@ type returns[Sketch result]:
 	| CIRCLE {$result = mkShape($CIRCLE.text);}
 	| TRIANGLE {$result = mkShape($TRIANGLE.text);}
 	| TRAPEZIO {$result = mkShape($TRAPEZIO.text);}
-        | PAGE {$result = mkShape($PAGE.text);}
     ;
 
 property returns[Sketch result]:
-    ph1 = height 
-    wp1 = width 
-    pc1 = color 
-    {$result = mkProperty($ph1.result,$wp1.result,$pc1.result);}
+    height = NUMERO 
+    width = NUMERO 
+    pColor = color 
+    {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),mkNumeric(Double.parseDouble($width.text)),$pColor.result);}
     ;
 
 color returns[Sketch result]:
@@ -175,14 +172,6 @@ color returns[Sketch result]:
 	| PINK {$result = mkColor($PINK.text);}
 	| GREEN {$result = mkColor($GREEN.text);}
 	| WHITE {$result = mkColor($WHITE.text);}
-    ;
-
-height returns[Sketch result]:
-	NUMERO {$result = mkNumeric(Double.parseDouble($NUMERO.text));}
-    ;
-
-width returns[Sketch result]:
-	NUMERO {$result = mkNumeric(Double.parseDouble($NUMERO.text));}
     ;
 
 fragment DIGITS: [0-9]+
@@ -239,7 +228,6 @@ HEART: 'heart';
 CIRCLE: 'CIRCLE';
 TRIANGLE: 'triangle';
 TRAPEZIO: 'trapezio';
-PAGE: 'page';
 
 //COLORS
 RED: 'red';

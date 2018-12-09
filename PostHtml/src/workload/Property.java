@@ -19,15 +19,15 @@ public class Property extends Sketch {
     public final double width;
     public final String color;
     
-    public Property(double height, double width, String color){
-        this.height =  height;
-        this.width = width;
+    public Property(Numeric height, Numeric width, String color){
+        this.height =  height.value;
+        this.width = width.value;
         this.color = color;
     }
 
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
     }
 
     

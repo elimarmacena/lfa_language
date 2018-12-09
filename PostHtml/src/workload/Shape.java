@@ -17,42 +17,41 @@ public class Shape extends Sketch{
     public final String value;
     
     public Shape(String nameShape){
-        this.value= "";
         if(nameShape.equalsIgnoreCase("square")){
-            //html para quadrado
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("rectangle")){
-            //html para retangulo
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("oval")){
-            //html para forma oval
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("star")){
-            //html para estrela
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("pentagon")){
-            //html para pentagono
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("hexagon")){
-            //html para hexagono
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("octagon")){
-            //html para octagono
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("heart")){
-            //html para coracao
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("circle")){
-            //html para circulo
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("triangle")){
-            //html para triangulo
+            this.value = nameShape;
         }
         else if (nameShape.equalsIgnoreCase("trapezio")){
-            //html para trapezio
+            this.value = nameShape;
         }
         else if(nameShape.equalsIgnoreCase("page")){
-            //html para definicao da pagina
+            this.value = nameShape;
         }
         else{
             throw new RuntimeException("ERRO: shape type not found.");
@@ -61,7 +60,7 @@ public class Shape extends Sketch{
 
     @Override
     public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
     }
     
 

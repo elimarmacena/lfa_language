@@ -22,7 +22,7 @@ public class CalcJS {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("input.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("eli.txt"));
 
         Map<String, Expr> ctx = new HashMap<>();
         ctx.put("sin", Predef.SIN);
@@ -32,10 +32,13 @@ public class CalcJS {
         ctx.put("write", Predef.WRITE);
 
         FileWriter fw = new FileWriter("teste.html");
-        fw.write("<canvas id='myCanvas' width='200' height='100'></canvas>\n");
+        fw.write("<canvas id='myCanvas' width='720' height='1280'></canvas>\n");
         fw.write("<script>\n");
+        //PARA REDUZIR TEMPO DE PROCESSAMENTO O ELEMENTO DO HTML EH BUSCADO APENAS UMA VEZ
+        fw.write("var canvas = document.getElementById(\"myCanvas\");");
         fw.flush();
 
+        
         String code = readInput(br);
         ANTLRInputStream input = new ANTLRInputStream(code);
         CalcLexer lexer = new CalcLexer(input);

@@ -1,9 +1,11 @@
-// Generated from C:\Users\joel-\Desktop\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
+// Generated from C:\Users\elmr\Documents\GITHUB\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
 package posthtml;
 
 import workload.Expr;
+import workload.Sketch;
 import workload.Operator;
 import static workload.Expr.*;
+import static workload.Sketch.*;
 import workload.Op;
 import java.util.LinkedList;
 
@@ -38,6 +40,28 @@ public interface CalcListener extends ParseTreeListener {
 	void exitBexpr(@NotNull CalcParser.BexprContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link CalcParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void enterShape(@NotNull CalcParser.ShapeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void exitShape(@NotNull CalcParser.ShapeContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CalcParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterColor(@NotNull CalcParser.ColorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitColor(@NotNull CalcParser.ColorContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link CalcParser#conj}.
 	 * @param ctx the parse tree
 	 */
@@ -69,6 +93,17 @@ public interface CalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitInicio(@NotNull CalcParser.InicioContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CalcParser#draw}.
+	 * @param ctx the parse tree
+	 */
+	void enterDraw(@NotNull CalcParser.DrawContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#draw}.
+	 * @param ctx the parse tree
+	 */
+	void exitDraw(@NotNull CalcParser.DrawContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link CalcParser#relOp}.
@@ -126,6 +161,17 @@ public interface CalcListener extends ParseTreeListener {
 	void exitDisj(@NotNull CalcParser.DisjContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link CalcParser#drawassing}.
+	 * @param ctx the parse tree
+	 */
+	void enterDrawassing(@NotNull CalcParser.DrawassingContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#drawassing}.
+	 * @param ctx the parse tree
+	 */
+	void exitDrawassing(@NotNull CalcParser.DrawassingContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link CalcParser#whileExpr}.
 	 * @param ctx the parse tree
 	 */
@@ -148,6 +194,17 @@ public interface CalcListener extends ParseTreeListener {
 	void exitFator(@NotNull CalcParser.FatorContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link CalcParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void enterDesign(@NotNull CalcParser.DesignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void exitDesign(@NotNull CalcParser.DesignContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link CalcParser#statement}.
 	 * @param ctx the parse tree
 	 */
@@ -157,6 +214,17 @@ public interface CalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatement(@NotNull CalcParser.StatementContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CalcParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterProperty(@NotNull CalcParser.PropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitProperty(@NotNull CalcParser.PropertyContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link CalcParser#ifExpr}.
