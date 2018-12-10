@@ -17,45 +17,7 @@ public class Shape extends Sketch{
     public final String value;
     
     public Shape(String nameShape){
-        if(nameShape.equalsIgnoreCase("square")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("rectangle")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("oval")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("star")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("pentagon")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("hexagon")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("octagon")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("heart")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("circle")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("triangle")){
-            this.value = nameShape;
-        }
-        else if (nameShape.equalsIgnoreCase("trapezio")){
-            this.value = nameShape;
-        }
-        else if(nameShape.equalsIgnoreCase("page")){
-            this.value = nameShape;
-        }
-        else{
-            throw new RuntimeException("ERRO: shape type not found.");
-        }
+        this.value = nameShape;
     }
 
     @Override

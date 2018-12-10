@@ -1,2 +1,2 @@
-square  100  100  white;
+skt teste = square  100  100  black;
 teste1 = 11;

@@ -56,14 +56,13 @@ sttmtSeq returns [List<Expr> sttmts]
     ;
 
 expr returns [Expr result]
-    : sa1 = drawassing  {$result = $sa1.result;}
-    | d2 = draw         {$result = $d2.result;} /*chamada unica do desenho*/
-    | a=assign          {$result = $a.result;}
+    : a=assign          {$result = $a.result;}
     | e=bexpr           {$result = $e.result;}
     ;
 
 assign returns [Expr result]
     : IDENT GETS e=expr     {$result = mkAssign($IDENT.text, $e.result);}
+    | DRAWID IDENT GETS d1 = draw       {$result = mkDrawAssing($IDENT.text,$d1.result);} /*declara variavel*/
     ;
 
 bexpr returns [Expr result]
@@ -130,18 +129,10 @@ argList returns [List<Expr> args]
     ;
 
 //POSTHTML EXCLUSIVE
-drawassing returns [Sketch result]:
-    DRAWID IDENT GETS d1 = draw       {$result = mkDrawAssing($IDENT.text,$d1.result);} /*declara variavel*/
+draw returns[Sketch result]
+    : ds1=shape dp1=property                  {$result = mkDesign($ds1.result,$dp1.result);}
     ;
 
-draw returns[Sketch result]:
-	 dd1 = design                               {$result = $dd1.result;}
-    ;
-
-design returns[Sketch result]:
-	ds1 = shape dp1 = property                  {$result = mkDesign($ds1.result,$dp1.result);}
-    ;
- 
 shape returns[Sketch result]:
 	SQUARE {$result = mkShape($SQUARE.text);}
 	| RECTANGLE {$result = mkShape($RECTANGLE.text);}
@@ -154,9 +145,7 @@ shape returns[Sketch result]:
     ;
 
 property returns[Sketch result]:
-    height = NUMERO 
-    width = NUMERO 
-    pColor = color 
+    height = NUMERO width = NUMERO pColor = color 
     {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),mkNumeric(Double.parseDouble($width.text)),$pColor.result);}
     ;
 
@@ -187,6 +176,26 @@ WHILE   : 'while' ;
 DO      : 'do' ;
 
 
+//SHAPES
+SQUARE: 'square';
+RECTANGLE: 'rectangle';
+OVAL: 'oval';
+PENTAGON: 'pentagon';
+OCTAGON: 'octagon';
+CIRCLE: 'CIRCLE';
+TRIANGLE: 'triangle';
+TRAPEZIO: 'trapezio';
+
+//COLORS
+RED: 'red';
+BLUE: 'blue';
+BLACK: 'black';
+PURPLE: 'purple';
+WHITE: 'white';
+GREEN: 'green';
+PINK: 'pink';
+YELLOW: 'yellow';
+
 DRAWID: 'skt' | 'SKT';
 IDENT   : [_a-zA-Z][_a-zA-Z0-9]*
         ;
@@ -213,25 +222,7 @@ GT:     '>';
 GEQ:    '>=';
 
 
-//SHAPES
-SQUARE: 'square';
-RECTANGLE: 'rectangle';
-OVAL: 'oval';
-PENTAGON: 'pentagon';
-OCTAGON: 'octagon';
-CIRCLE: 'CIRCLE';
-TRIANGLE: 'triangle';
-TRAPEZIO: 'trapezio';
 
-//COLORS
-RED: 'red';
-BLUE: 'blue';
-BLACK: 'black';
-PURPLE: 'purple';
-WHITE: 'white';
-GREEN: 'green';
-PINK: 'pink';
-YELLOW: 'yellow';
 
 WS  : [ \t\r\n]+ -> skip 
     ;
