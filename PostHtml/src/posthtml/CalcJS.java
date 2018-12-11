@@ -30,6 +30,7 @@ public class CalcJS {
         ctx.put("tan", Predef.TAN);
         ctx.put("write", Predef.WRITE);
         ctx.put("draw", Predef.DRAW);
+        ctx.put("drawline", Predef.DRAWLINE);
 
         FileWriter fw = new FileWriter("teste.html");
         fw.write("<canvas id='myCanvas' width='720' height='1280'></canvas>\n");
