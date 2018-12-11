@@ -62,7 +62,7 @@ expr returns [Expr result]
 
 assign returns [Expr result]
     : IDENT GETS e=expr     {$result = mkAssign($IDENT.text, $e.result);}
-    | DRAWID IDENT GETS d1 = draw       {$result = mkDrawAssing($IDENT.text,$d1.result);} /*declara variavel*/
+    | DRAWID IDENT GETS d1 = design       {$result = mkDrawAssing($IDENT.text,$d1.result);} /*declara variavel*/
     ;
 
 bexpr returns [Expr result]
@@ -128,11 +128,15 @@ argList returns [List<Expr> args]
       (COMMA e2=expr {$args.add($e2.result);})*
     ;
 
-//POSTHTML EXCLUSIVE
-draw returns[Sketch result]
-    : ds1=shape dp1=property                  {$result = mkDesign($ds1.result,$dp1.result);}
+design returns [Sketch result]:
+    ds1=shape dp1=property                  {$result = mkDesign($ds1.result,$dp1.result);}
     ;
 
+/*  ============================================================================
+*   |USADO PARA DEFINIR QUAL FORMATO DEVE SER CRIADO, APENAS EH ATRIBUIDO UMA   |
+*   |STRING, O PROCESSO DE FATO ACONTECE EM DESIGN                              |
+    ============================================================================
+*/
 shape returns[Sketch result]:
 	SQUARE {$result = mkShape($SQUARE.text);}
 	| RECTANGLE {$result = mkShape($RECTANGLE.text);}
@@ -182,7 +186,7 @@ RECTANGLE: 'rectangle';
 OVAL: 'oval';
 PENTAGON: 'pentagon';
 OCTAGON: 'octagon';
-CIRCLE: 'CIRCLE';
+CIRCLE: 'circle';
 TRIANGLE: 'triangle';
 TRAPEZIO: 'trapezio';
 
