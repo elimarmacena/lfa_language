@@ -15,11 +15,11 @@ import java.util.Map;
  */
 public class DrawAssing extends Sketch{
     private final String drawName;
-    private final Draw draw;
+    private final Sketch draw;
     
     public DrawAssing(String drawName, Sketch draw){
         this.drawName = drawName;
-        this.draw = (Draw)draw;
+        this.draw = draw;
     }
     
     @Override
@@ -29,7 +29,7 @@ public class DrawAssing extends Sketch{
 
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        Sketch data = draw.eval(ctx,fw,identLevel,changeCtx);
+        Sketch data = (Sketch) draw.eval(ctx,fw,identLevel,changeCtx);
         ctx.put(drawName, data);
         return data;
     }

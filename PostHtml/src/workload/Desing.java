@@ -7,6 +7,7 @@ package workload;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -21,7 +22,7 @@ public class Desing extends Sketch {
             ====================================================================
         */
         if (shape.value.equalsIgnoreCase("square")){
-            this.plotDraw = String.format("var altura = %f;" +
+            this.plotDraw = String.format(Locale.US,"var altura = %.2f;" +
                 "var largura = altura;" +
                 "var ctx = canvas.getContext('2d');" +
                 "var rectangle = new Path2D();" +
@@ -142,6 +143,6 @@ public class Desing extends Sketch {
 
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
     }
 }

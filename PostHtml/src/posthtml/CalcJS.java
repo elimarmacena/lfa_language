@@ -28,8 +28,8 @@ public class CalcJS {
         ctx.put("sin", Predef.SIN);
         ctx.put("cos", Predef.COS);
         ctx.put("tan", Predef.TAN);
-        ctx.put("read", Predef.READ);
         ctx.put("write", Predef.WRITE);
+        ctx.put("draw", Predef.DRAW);
 
         FileWriter fw = new FileWriter("teste.html");
         fw.write("<canvas id='myCanvas' width='720' height='1280'></canvas>\n");

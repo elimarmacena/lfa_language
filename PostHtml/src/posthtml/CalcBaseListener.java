@@ -117,19 +117,6 @@ public class CalcBaseListener implements CalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterDraw(@NotNull CalcParser.DrawContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitDraw(@NotNull CalcParser.DrawContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterRelOp(@NotNull CalcParser.RelOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,6 +202,19 @@ public class CalcBaseListener implements CalcListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitFator(@NotNull CalcParser.FatorContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDesign(@NotNull CalcParser.DesignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDesign(@NotNull CalcParser.DesignContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -1,2 +1,4 @@
-skt teste = square  100  100  black;
-teste1 = 11;
+skt teste = square  500  500  red;
+skt test2 = square  300  300  black;
+draw(0,0,teste);
+draw(0,0,test2);

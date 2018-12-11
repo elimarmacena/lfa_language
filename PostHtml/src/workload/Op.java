@@ -1,7 +1,9 @@
 package workload;
 
 
+import java.io.FileWriter;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,7 +17,7 @@ public class Op {
     
     public static final Operator PLUS = new Operator("+") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = x + y;
@@ -25,7 +27,7 @@ public class Op {
     
     public static final Operator MINUS = new Operator("-") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = x - y;
@@ -35,7 +37,7 @@ public class Op {
     
     public static final Operator TIMES = new Operator("*") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = x * y;
@@ -45,7 +47,7 @@ public class Op {
     
     public static final Operator DIVIDE = new Operator("/") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = x / y;
@@ -55,7 +57,7 @@ public class Op {
     
     public static final Operator MOD = new Operator("%") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = x % y;
@@ -65,7 +67,7 @@ public class Op {
     
     public static final Operator EXP = new Operator("^") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             Double y = ((Numeric)params.get(1)).value;
             Double z = Math.pow(x, y);
@@ -75,7 +77,7 @@ public class Op {
     
     public static final Operator UMINUS = new Operator("-") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Double x = ((Numeric)params.get(0)).value;
             return mkNumeric(-x);
         }
@@ -88,7 +90,7 @@ public class Op {
     
     public static final Operator EQU = new Operator("===") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr x = params.get(0);
             Expr y = params.get(1);
             return x.equals(y) ? ONE : ZERO;
@@ -97,7 +99,7 @@ public class Op {
         
     public static final Operator NEQ = new Operator("!==") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr x = params.get(0);
             Expr y = params.get(1);
             return x.equals(y) ? ZERO : ONE;
@@ -106,7 +108,7 @@ public class Op {
     
     public static final Operator LT = new Operator("<") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr a = params.get(0);
             Expr b = params.get(1);
             if ((a instanceof Numeric) && (b instanceof Numeric)) {
@@ -124,7 +126,7 @@ public class Op {
         
     public static final Operator LEQ = new Operator("<=") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr a = params.get(0);
             Expr b = params.get(1);
             if ((a instanceof Numeric) && (b instanceof Numeric)) {
@@ -142,7 +144,7 @@ public class Op {
     
     public static final Operator GT = new Operator(">") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr a = params.get(0);
             Expr b = params.get(1);
             if ((a instanceof Numeric) && (b instanceof Numeric)) {
@@ -160,7 +162,7 @@ public class Op {
     
     public static final Operator GEQ = new Operator(">=") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr a = params.get(0);
             Expr b = params.get(1);
             if ((a instanceof Numeric) && (b instanceof Numeric)) {
@@ -183,7 +185,7 @@ public class Op {
     
     public static final Operator OR = new Operator("or") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr x = params.get(0);
             Expr y = params.get(1);
             return (isTrue(x) || isTrue(y)) ? ONE : ZERO;
@@ -192,7 +194,7 @@ public class Op {
     
     public static final Operator AND = new Operator("and") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr x = params.get(0);
             Expr y = params.get(1);
             return (isTrue(x) && isTrue(y)) ? ONE : ZERO;
@@ -201,7 +203,7 @@ public class Op {
     
     public static final Operator NOT = new Operator("not") {
         @Override
-        public Expr apply(List<Expr> params) {
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
             Expr x = params.get(0);
             return isTrue(x) ? ZERO : ONE;
         }

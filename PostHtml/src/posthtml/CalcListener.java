@@ -95,17 +95,6 @@ public interface CalcListener extends ParseTreeListener {
 	void exitInicio(@NotNull CalcParser.InicioContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link CalcParser#draw}.
-	 * @param ctx the parse tree
-	 */
-	void enterDraw(@NotNull CalcParser.DrawContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CalcParser#draw}.
-	 * @param ctx the parse tree
-	 */
-	void exitDraw(@NotNull CalcParser.DrawContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link CalcParser#relOp}.
 	 * @param ctx the parse tree
 	 */
@@ -181,6 +170,17 @@ public interface CalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFator(@NotNull CalcParser.FatorContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CalcParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void enterDesign(@NotNull CalcParser.DesignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CalcParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void exitDesign(@NotNull CalcParser.DesignContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link CalcParser#statement}.

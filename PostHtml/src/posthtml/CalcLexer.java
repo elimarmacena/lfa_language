@@ -38,7 +38,7 @@ public class CalcLexer extends Lexer {
 		"<INVALID>",
 		"NUMERO", "'or'", "'and'", "'not'", "'if'", "'then'", "'else'", "'while'", 
 		"'do'", "'square'", "'rectangle'", "'oval'", "'pentagon'", "'octagon'", 
-		"'CIRCLE'", "'triangle'", "'trapezio'", "'red'", "'blue'", "'black'", 
+		"'circle'", "'triangle'", "'trapezio'", "'red'", "'blue'", "'black'", 
 		"'purple'", "'white'", "'green'", "'pink'", "'yellow'", "DRAWID", "IDENT", 
 		"'='", "'+'", "'-'", "'*'", "'/'", "'%'", "'^'", "'('", "')'", "'{'", 
 		"'}'", "','", "';'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "WS", 
@@ -158,9 +158,9 @@ public class CalcLexer extends Lexer {
 		"\u00aa\7v\2\2\u00aa\u00ab\7c\2\2\u00ab\u00ac\7i\2\2\u00ac\u00ad\7q\2\2"+
 		"\u00ad\u00ae\7p\2\2\u00ae\36\3\2\2\2\u00af\u00b0\7q\2\2\u00b0\u00b1\7"+
 		"e\2\2\u00b1\u00b2\7v\2\2\u00b2\u00b3\7c\2\2\u00b3\u00b4\7i\2\2\u00b4\u00b5"+
-		"\7q\2\2\u00b5\u00b6\7p\2\2\u00b6 \3\2\2\2\u00b7\u00b8\7E\2\2\u00b8\u00b9"+
-		"\7K\2\2\u00b9\u00ba\7T\2\2\u00ba\u00bb\7E\2\2\u00bb\u00bc\7N\2\2\u00bc"+
-		"\u00bd\7G\2\2\u00bd\"\3\2\2\2\u00be\u00bf\7v\2\2\u00bf\u00c0\7t\2\2\u00c0"+
+		"\7q\2\2\u00b5\u00b6\7p\2\2\u00b6 \3\2\2\2\u00b7\u00b8\7e\2\2\u00b8\u00b9"+
+		"\7k\2\2\u00b9\u00ba\7t\2\2\u00ba\u00bb\7e\2\2\u00bb\u00bc\7n\2\2\u00bc"+
+		"\u00bd\7g\2\2\u00bd\"\3\2\2\2\u00be\u00bf\7v\2\2\u00bf\u00c0\7t\2\2\u00c0"+
 		"\u00c1\7k\2\2\u00c1\u00c2\7c\2\2\u00c2\u00c3\7p\2\2\u00c3\u00c4\7i\2\2"+
 		"\u00c4\u00c5\7n\2\2\u00c5\u00c6\7g\2\2\u00c6$\3\2\2\2\u00c7\u00c8\7v\2"+
 		"\2\u00c8\u00c9\7t\2\2\u00c9\u00ca\7c\2\2\u00ca\u00cb\7r\2\2\u00cb\u00cc"+

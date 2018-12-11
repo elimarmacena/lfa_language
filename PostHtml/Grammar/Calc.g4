@@ -27,6 +27,7 @@ inicio returns [List<Expr> result]
  */
 statement returns [Expr result]
     : e=expr SEMI       {$result = $e.result;}
+    | a=assign SEMI     {$result = $a.result;}
     | i=ifExpr          {$result = $i.result;}
     | w=whileExpr       {$result = $w.result;}
     | b=block           {$result = $b.result;}
@@ -56,8 +57,7 @@ sttmtSeq returns [List<Expr> sttmts]
     ;
 
 expr returns [Expr result]
-    : a=assign          {$result = $a.result;}
-    | e=bexpr           {$result = $e.result;}
+    : e=bexpr           {$result = $e.result;}
     ;
 
 assign returns [Expr result]

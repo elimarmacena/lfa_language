@@ -33,7 +33,7 @@ public class CompositeExpr extends Expr {
             Expr y = x.eval(ctx, null, identLevel);
             params.add(y);
         }
-        Expr result = app.apply(params);
+        Expr result = app.apply(params, ctx, fw, identLevel);
         return result;
     }
     
