@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import static java.lang.String.format;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -76,27 +77,35 @@ public class Predef {
     
     /*
     ============================================================================
-    FUNCAO RESPONSAVEL PARA DESENHAR LINAHS NO CANVAS, TRABALHA COM DOIS 
-    PARAMETROS
+    |FUNCAO RESPONSAVEL PARA DESENHAR LINAHS NO CANVAS, TRABALHA COM QUARTRO   |
+    |PARAMETROS, X E Y INICIAL E X E Y FINAL DA LINHA A SER PLOTADA.           |
     ============================================================================
     */
     public static final Function DRAWLINE = new Function(null){
         @Override
-        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel){
-            if(params.size() != 2){
+        public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) throws IOException{
+            if(params.size() != 4){
                 String msg = format(
-                        "Wrong number of arguments. Expecting 2; Found: %d.", 
+                        "Wrong number of arguments. Expecting 4; Found: %d.", 
                         params.size());
                 throw new IllegalArgumentException(msg);
 
             }
-            Numeric beginX = (Numeric) params.get(0);
-            Numeric endY = (Numeric) params.get(1);
-            String drawLine = String.format("var ctx = c.getContext(\"2d\");\n ctx.moveTo(0, 0);\n ctx.lineTo(%f, %f);\n ctx.stroke();", beginX,endY);
+            double beginX = ((Numeric)params.get(0)).value;
+            double beginY = ((Numeric)params.get(1)).value;
+            double endX = ((Numeric)params.get(2)).value;
+            double endY = ((Numeric)params.get(3)).value;
+            String drawLine = String.format(Locale.US,"var ctx = canvas.getContext('2d');\n ctx.moveTo(%f, %f);\n ctx.lineTo(%f, %f);\n ctx.stroke();", beginX, beginY, endX, endY);
+            writeJS(drawLine, fw, identLevel);
             return UNIT;
         }
     };
-    
+    /*
+    ============================================================================
+    |FUNCAO RESPONSAVEL PARA QUE SEJA EXIBIDA A IMAGEM PREVIAMENTE ESTABELECIDA|
+    |EH NECESSARIO INFORMAR O X,Y INICIAL DO PLOT, ALEM DO DESENHO A SER FEITO |
+    ============================================================================
+    */
     public static final Function DRAW = new Function(null,true) {
         @Override
         public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) throws IOException {

@@ -3,7 +3,6 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var circle = new Path2D();
-circle.moveTo(125, 35);
 circle.arc(30, 30, 10, 0, 2 * Math.PI); //(X DO CENTRO, Y DO CENTRO, DIAMETRO DO CIRCULO)
 ctx.fill(circle);
 
@@ -73,18 +72,17 @@ ctx.fill();
 //TRAPEZIO
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext("2d");
-var beginXbase = 100;
-var endXbase = 500;
-var altura = 200;
-var superiorTrap = endXbase - ((endXbase - beginXbase) / 8); //calculo para tornar a figura um trapezio
-/*=================================================
-* |LARGURA DA FIGURA IGUAL  endXbase - beginXbase |
-* =================================================
-*/
-context.moveTo(150,50);
-context.lineTo(superiorTrap,50);
-context.lineTo(endXbase,300);
-context.lineTo(beginXbase,300);
+var altura = 200; //INFORMADO PELO USUARIO
+var largura = 300; //INFORMADO PELO USUARIO
+var beginXplot = 150; //X INFORMADO PELO USUARIO
+var beginYplot = 50; //Y INFORMADO PELO USUARIO
+var beginXbase = beginXplot - largura / 10;
+var endXbase = beginXbase + largura;
+var superiorTrap = beginXplot + largura - largura / 5;
+context.moveTo(beginXplot, beginYplot); //CANTO SUP ESQ
+context.lineTo(superiorTrap, beginYplot); //CANTO SUP DIR
+context.lineTo(endXbase, beginYplot + altura); //CANTO INF DIR
+context.lineTo(beginXbase, beginYplot + altura); //CANTO INF ESQ
 context.closePath();
 context.fill();
 
