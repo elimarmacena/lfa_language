@@ -135,8 +135,7 @@ public class Desing extends Sketch {
         }
         
     }
-    
-    
+
     //@Override
     //DEPOIS NOIX VE
     //public String toString(){

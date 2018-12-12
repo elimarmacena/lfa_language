@@ -162,10 +162,12 @@ color returns[Sketch result]:
 	| PINK {$result = mkColor($PINK.text);}
 	| GREEN {$result = mkColor($GREEN.text);}
 	| WHITE {$result = mkColor($WHITE.text);}
+	| CUSTOM {$result = mkColor($CUSTOM.text);}
     ;
 
-fragment DIGITS: [0-9]+
-               ;
+CUSTOM: HASH (IDENT | HEX_NUM);
+
+fragment DIGITS: [0-9]+;
 
 NUMERO: DIGITS ('.' DIGITS)?
       ;
@@ -200,10 +202,12 @@ GREEN: 'green';
 PINK: 'pink';
 YELLOW: 'yellow';
 
-DRAWID: 'skt' | 'SKT';
-IDENT   : [_a-zA-Z][_a-zA-Z0-9]*
-        ;
+DRAWID  : 'skt' | 'SKT';
 
+IDENT   : [_a-zA-Z][_a-zA-Z0-9]*;
+HEX_NUM : [_0-9][_a-zA-Z0-9]*;
+
+HASH : '#';
 GETS:   '=' ;
 PLUS:   '+' ;
 MINUS:  '-' ;
