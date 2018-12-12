@@ -1,7 +1,5 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
-var canvas = document.getElementById("myCanvas");var ctx = canvas.getContext('2d');
- ctx.moveTo(0.000000, 0.000000);
- ctx.lineTo(600.000000, 100.000000);
- ctx.stroke();
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext('2d');ctx.beginPath();var altura = 100.000000;var begin ={x:200.0,y:200.0};var Base = {x:begin.x, y:(altura+begin.y)};ctx.moveTo(Base.x, Base.y);var radius = (100.000000 / 2);var sidesNumber = 5;for(var i=1;i<=sidesNumber; ++i){	var th = i * 2 * Math.PI/sidesNumber;	var x = Base.x + radius * Math.sin(th);	var y = Base.y  + radius - radius * Math.cos(th);	ctx.lineTo(x,y);}ctx.fillStyle = "#33cc33";ctx.fill();
 </script>

@@ -24,6 +24,12 @@ public class Property extends Sketch {
         this.width = width.value;
         this.color = color;
     }
+    
+    public Property(Numeric height,String color){
+        this.height =  height.value;
+        this.width = 0;
+        this.color = color;
+    }
 
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {

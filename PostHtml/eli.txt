@@ -1,1 +1,2 @@
-drawline(0,0,600,100);
+skt teste = pentagon 100 100 green;
+draw(200,200,teste);

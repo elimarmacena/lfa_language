@@ -114,12 +114,13 @@ public class Predef {
                         "Wrong number of arguments. Expecting 3; Found: %d.", 
                         params.size());
                 throw new IllegalArgumentException(msg);
-
             }
-            Numeric beginX = (Numeric) params.get(0);
-            Numeric endY = (Numeric) params.get(1);
+            Numeric plotX = (Numeric) params.get(0);
+            Numeric plotY = (Numeric) params.get(1);
             Desing result = (Desing) params.get(2).eval(ctx, null, identLevel, false);
             String plot = result.plotDraw;
+            plot = plot.replace("{X}", String.valueOf(plotX));
+            plot = plot.replace("{Y}", String.valueOf(plotY));
             writeJS(plot, fw, identLevel);
             return UNIT;
         }
