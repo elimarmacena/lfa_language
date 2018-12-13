@@ -35,7 +35,7 @@ statement returns [Expr result]
     ;
 
 createFunc returns [Expr result]
-    : KEYCREATEF (IDENT) | (DRAWID IDENT) LPAR a = argList RPAR block  {$result = mkFunction($IDENT.text, $block.result, $a.args);}
+    : KEYCREATEF IDENT LPAR a = argList RPAR block  {$result = mkFunction($IDENT.text, $block.result, $a.args);}
     ;
 ifExpr returns [Expr result]
     : IF c=bexpr THEN t=statement
@@ -141,34 +141,32 @@ design returns [Sketch result]:
 *   |STRING, O PROCESSO DE FATO ACONTECE EM DESIGN                              |
     ============================================================================
 */
-shape returns[Sketch result]:
-	SQUARE {$result = mkShape($SQUARE.text);}
-	| RECTANGLE {$result = mkShape($RECTANGLE.text);}
-	| OVAL {$result = mkShape($OVAL.text);}
-	| PENTAGON {$result = mkShape($PENTAGON.text);}
-	| OCTAGON {$result = mkShape($OCTAGON.text);}
-	| CIRCLE {$result = mkShape($CIRCLE.text);}
-	| TRIANGLE {$result = mkShape($TRIANGLE.text);}
-	| TRAPEZIO {$result = mkShape($TRAPEZIO.text);}
+shape returns[Sketch result]
+    : SQUARE {$result = mkShape($SQUARE.text);}
+    | RECTANGLE {$result = mkShape($RECTANGLE.text);}
+    | OVAL {$result = mkShape($OVAL.text);}
+    | PENTAGON {$result = mkShape($PENTAGON.text);}
+    | OCTAGON {$result = mkShape($OCTAGON.text);}
+    | CIRCLE {$result = mkShape($CIRCLE.text);}
+    | TRIANGLE {$result = mkShape($TRIANGLE.text);}
+    | TRAPEZIO {$result = mkShape($TRAPEZIO.text);}
     ;
 
-property returns[Sketch result]:
-    height = NUMERO pColor = color                      {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),$pColor.result);}//USADO PARA FORMAS QUE NECESSITAM DE APENAS UM PARAMETRO (CIRCLE E SQUARE)                                   
-    |height = NUMERO width = NUMERO pColor = color      {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),mkNumeric(Double.parseDouble($width.text)),$pColor.result);}
-    
-    
+property returns[Sketch result]
+    : height = expr pColor = color                      {$result = mkProperty($height.result,$pColor.result);}//USADO PARA FORMAS QUE NECESSITAM DE APENAS UM PARAMETRO (CIRCLE E SQUARE)                                   
+    | height = expr width = expr pColor = color      {$result = mkProperty($height.result,$width.result,$pColor.result);}
     ;
 
-color returns[Sketch result]:
-	RED {$result = mkColor($RED.text);}
-	| BLUE {$result = mkColor($BLUE.text);}
-	| BLACK {$result = mkColor($BLACK.text);}
-	| PURPLE {$result = mkColor($PURPLE.text);}
-	| YELLOW {$result = mkColor($YELLOW.text);}
-	| PINK {$result = mkColor($PINK.text);}
-	| GREEN {$result = mkColor($GREEN.text);}
-	| WHITE {$result = mkColor($WHITE.text);}
-	| CUSTOM {$result = mkColor($CUSTOM.text);}
+color returns[Sketch result]
+    : RED {$result = mkColor($RED.text);}
+    | BLUE {$result = mkColor($BLUE.text);}
+    | BLACK {$result = mkColor($BLACK.text);}
+    | PURPLE {$result = mkColor($PURPLE.text);}
+    | YELLOW {$result = mkColor($YELLOW.text);}
+    | PINK {$result = mkColor($PINK.text);}
+    | GREEN {$result = mkColor($GREEN.text);}
+    | WHITE {$result = mkColor($WHITE.text);}
+    | CUSTOM {$result = mkColor($CUSTOM.text);}
     ;
 
 CUSTOM: HASH (IDENT | HEX_NUM);

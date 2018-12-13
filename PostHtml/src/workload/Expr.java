@@ -60,11 +60,11 @@ public abstract class Expr {
         return new FunCall(fname, args);
     }
    
-    public static Sketch mkFunction(String funcName,Expr bloco,Expr... args){
+    public static Expr mkFunction(String funcName,Expr bloco,Expr... args){
         return mkFunction(funcName,bloco,Arrays.asList(args));
     }
     
-    public static Sketch mkFunction(String funcName, Expr bloco, List<Expr> args){
+    public static Expr mkFunction(String funcName, Expr bloco, List<Expr> args){
         return new UserFunction(funcName,args,(Block)bloco);
     }
     

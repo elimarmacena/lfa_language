@@ -1,3 +1,10 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
 var canvas = document.getElementById("myCanvas");
+var teste = function (width, heigth) {
+
+    var ctx = canvas.getContext('2d');var altura = heigth;var largura = width;var rectangle = new Path2D();rectangle.rect(100.0, 100.0, largura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
+};
+teste(100.0, 200.0)
+teste(500.0, 100.0)
+</script>

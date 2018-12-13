@@ -42,7 +42,7 @@ public class FunCall extends Expr {
         
         jsRepr = f.jsRepr;
         
-        return f.apply(params, ctx, fw, identLevel);
+    return f.apply(params, ctx, fw, identLevel);
     }
     
     @Override

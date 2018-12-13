@@ -1,4 +1,4 @@
-// Generated from C:\Users\elmr\Documents\GITHUB\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
+// Generated from C:\Users\joel-\Desktop\lfa_language\PostHtml\Grammar\Calc.g4 by ANTLR 4.1
 package posthtml;
 
 import workload.Expr;
@@ -940,40 +940,42 @@ public class CalcParser extends Parser {
 	public final AexprContext aexpr() throws RecognitionException {
 		AexprContext _localctx = new AexprContext(_ctx, getState());
 		enterRule(_localctx, 26, RULE_aexpr);
-		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(177); ((AexprContext)_localctx).p1 = parcela();
 			((AexprContext)_localctx).result =  ((AexprContext)_localctx).p1.result;
 			setState(189);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==PLUS || _la==MINUS) {
-				{
-				setState(187);
-				switch (_input.LA(1)) {
-				case PLUS:
+			_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
+			while ( _alt!=2 && _alt!=-1 ) {
+				if ( _alt==1 ) {
 					{
-					setState(179); match(PLUS);
-					setState(180); ((AexprContext)_localctx).p2 = parcela();
-					((AexprContext)_localctx).result =  mkComposite(Op.PLUS, _localctx.result, ((AexprContext)_localctx).p2.result);
+					setState(187);
+					switch (_input.LA(1)) {
+					case PLUS:
+						{
+						setState(179); match(PLUS);
+						setState(180); ((AexprContext)_localctx).p2 = parcela();
+						((AexprContext)_localctx).result =  mkComposite(Op.PLUS, _localctx.result, ((AexprContext)_localctx).p2.result);
+						}
+						break;
+					case MINUS:
+						{
+						setState(183); match(MINUS);
+						setState(184); ((AexprContext)_localctx).p2 = parcela();
+						((AexprContext)_localctx).result =  mkComposite(Op.MINUS, _localctx.result, ((AexprContext)_localctx).p2.result);
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
 					}
-					break;
-				case MINUS:
-					{
-					setState(183); match(MINUS);
-					setState(184); ((AexprContext)_localctx).p2 = parcela();
-					((AexprContext)_localctx).result =  mkComposite(Op.MINUS, _localctx.result, ((AexprContext)_localctx).p2.result);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
+					} 
 				}
 				setState(191);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
+				_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
 			}
 			}
 		}
@@ -1489,15 +1491,17 @@ public class CalcParser extends Parser {
 
 	public static class PropertyContext extends ParserRuleContext {
 		public Sketch result;
-		public Token height;
+		public ExprContext height;
 		public ColorContext pColor;
-		public Token width;
+		public ExprContext width;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
 		public ColorContext color() {
 			return getRuleContext(ColorContext.class,0);
 		}
-		public List<TerminalNode> NUMERO() { return getTokens(CalcParser.NUMERO); }
-		public TerminalNode NUMERO(int i) {
-			return getToken(CalcParser.NUMERO, i);
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
 		}
 		public PropertyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1522,19 +1526,19 @@ public class CalcParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(280); ((PropertyContext)_localctx).height = match(NUMERO);
+				setState(280); ((PropertyContext)_localctx).height = expr();
 				setState(281); ((PropertyContext)_localctx).pColor = color();
-				((PropertyContext)_localctx).result =  mkProperty(mkNumeric(Double.parseDouble((((PropertyContext)_localctx).height!=null?((PropertyContext)_localctx).height.getText():null))),((PropertyContext)_localctx).pColor.result);
+				((PropertyContext)_localctx).result =  mkProperty(((PropertyContext)_localctx).height.result,((PropertyContext)_localctx).pColor.result);
 				}
 				break;
 
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(284); ((PropertyContext)_localctx).height = match(NUMERO);
-				setState(285); ((PropertyContext)_localctx).width = match(NUMERO);
+				setState(284); ((PropertyContext)_localctx).height = expr();
+				setState(285); ((PropertyContext)_localctx).width = expr();
 				setState(286); ((PropertyContext)_localctx).pColor = color();
-				((PropertyContext)_localctx).result =  mkProperty(mkNumeric(Double.parseDouble((((PropertyContext)_localctx).height!=null?((PropertyContext)_localctx).height.getText():null))),mkNumeric(Double.parseDouble((((PropertyContext)_localctx).width!=null?((PropertyContext)_localctx).width.getText():null))),((PropertyContext)_localctx).pColor.result);
+				((PropertyContext)_localctx).result =  mkProperty(((PropertyContext)_localctx).height.result,((PropertyContext)_localctx).width.result,((PropertyContext)_localctx).pColor.result);
 				}
 				break;
 			}
@@ -1763,9 +1767,9 @@ public class CalcParser extends Parser {
 		"\7\23\2\2\u0115\u0119\b\25\1\2\u0116\u0117\7\24\2\2\u0117\u0119\b\25\1"+
 		"\2\u0118\u0108\3\2\2\2\u0118\u010a\3\2\2\2\u0118\u010c\3\2\2\2\u0118\u010e"+
 		"\3\2\2\2\u0118\u0110\3\2\2\2\u0118\u0112\3\2\2\2\u0118\u0114\3\2\2\2\u0118"+
-		"\u0116\3\2\2\2\u0119)\3\2\2\2\u011a\u011b\7\4\2\2\u011b\u011c\5,\27\2"+
-		"\u011c\u011d\b\26\1\2\u011d\u0124\3\2\2\2\u011e\u011f\7\4\2\2\u011f\u0120"+
-		"\7\4\2\2\u0120\u0121\5,\27\2\u0121\u0122\b\26\1\2\u0122\u0124\3\2\2\2"+
+		"\u0116\3\2\2\2\u0119)\3\2\2\2\u011a\u011b\5\20\t\2\u011b\u011c\5,\27\2"+
+		"\u011c\u011d\b\26\1\2\u011d\u0124\3\2\2\2\u011e\u011f\5\20\t\2\u011f\u0120"+
+		"\5\20\t\2\u0120\u0121\5,\27\2\u0121\u0122\b\26\1\2\u0122\u0124\3\2\2\2"+
 		"\u0123\u011a\3\2\2\2\u0123\u011e\3\2\2\2\u0124+\3\2\2\2\u0125\u0126\7"+
 		"\25\2\2\u0126\u0138\b\27\1\2\u0127\u0128\7\26\2\2\u0128\u0138\b\27\1\2"+
 		"\u0129\u012a\7\27\2\2\u012a\u0138\b\27\1\2\u012b\u012c\7\30\2\2\u012c"+

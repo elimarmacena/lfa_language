@@ -21,7 +21,7 @@ public abstract class Applicable extends Expr {
     public abstract Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) throws IOException;
     
     @Override
-    public Expr eval(Map<String,Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) {
+    public Expr eval(Map<String,Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException{
         return this;
     }
     

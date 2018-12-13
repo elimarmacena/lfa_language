@@ -25,35 +25,35 @@ public class Desing extends Sketch {
         */
         if (shape.value.equalsIgnoreCase("square")){
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-                "var altura = %.2f;" +
+                "var altura = %s;" +
                 "var largura = altura;" +
                 "var rectangle = new Path2D();" +
                 "rectangle.rect({X}, {Y}, largura, altura);" +
                 "ctx.fillStyle = \"%s\";"+
                 "ctx.fill(rectangle);"  
-               ,prop.height, prop.color );
+               ,prop.height.toString(), prop.color );
         }
         else if (shape.value.equalsIgnoreCase("rectangle")){
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "var altura = %f;" +
-            "var largura = %f;" +
+            "var altura = %s;" +
+            "var largura = %s;" +
             "var rectangle = new Path2D();" +
             "rectangle.rect({X}, {Y}, largura, altura);" +
             "ctx.fillStyle = \"%s\";"+
             "ctx.fill(rectangle);"
-            ,prop.height, prop.width,prop.color );
+            ,prop.height.toString(), prop.width.toString(),prop.color );
         }
         else if (shape.value.equalsIgnoreCase("oval")){
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
             "var centerX = {X};" +
             "var centerY = {Y};" +
-            "var largura = %f;" +
-            "var altura = %f;" +
+            "var largura = %s;" +
+            "var altura = %s;" +
             "ctx.beginPath();" +
             "ctx.ellipse(centerX, centerY, largura, altura, 0, 0, 2 * Math.PI);" +
             "ctx.fillStyle = \"%s\";"+
             "ctx.fill();"
-            ,prop.width, prop.height, prop.color );
+            ,prop.width.toString(), prop.height.toString(), prop.color );
         }
         else if (shape.value.equalsIgnoreCase("pentagon")){
             /*
@@ -63,11 +63,11 @@ public class Desing extends Sketch {
             */
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
             "ctx.beginPath();" +
-            "var altura = %f;"+
+            "var altura = %s;"+
             "var begin ={x:{X},y:{Y}};"+
             "var Base = {x:begin.x, y:(altura+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
-            "var radius = (%f / 2);" +
+            "var radius = (%s / 2);" +
             "var sidesNumber = 5;" +
             "for(var i=1;i<=sidesNumber; ++i){" +
             "	var th = i * 2 * Math.PI/sidesNumber;" +
@@ -75,7 +75,7 @@ public class Desing extends Sketch {
             "	var y = Base.y  + radius - radius * Math.cos(th);" +
             "	ctx.lineTo(x,y);}" +
             "ctx.fillStyle = \"%s\";"+
-            "ctx.fill();", prop.height, prop.width,prop.color);
+            "ctx.fill();", prop.height.toString(), prop.width.toString(),prop.color);
         }
         else if(shape.value.equalsIgnoreCase("octagon")){
             /*
@@ -85,11 +85,11 @@ public class Desing extends Sketch {
             */
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
             "ctx.beginPath();" +
-            "var altura = %f;"+
+            "var altura = %s;"+
             "var begin ={x:{X},y:{Y}};"+
             "var Base = {x:begin.x, y:(altura+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
-            "var radius = (%f / 2);" +
+            "var radius = (%s / 2);" +
             "var sidesNumber = 8;" +
             "for(var i=1;i<=sidesNumber; ++i){" +
             "	var th = i * 2 * Math.PI/sidesNumber;" +
@@ -97,34 +97,34 @@ public class Desing extends Sketch {
             "	var y = Base.y  + radius - radius * Math.cos(th);" +
             "	ctx.lineTo(x,y);}" +
             "ctx.fillStyle = \"%s\";"+
-            "ctx.fill();", prop.height, prop.width,prop.color);
+            "ctx.fill();", prop.height.toString(), prop.width.toString(),prop.color);
         }
         
         else if (shape.value.equalsIgnoreCase("circle")){
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
             "var circle = new Path2D();" +
-            "circle.arc({X}, {Y}, %f, 0, 2 * Math.PI);" +
+            "circle.arc({X}, {Y}, %s, 0, 2 * Math.PI);" +
             "ctx.fillStyle = \"%s\";"+
-            "ctx.fill(circle);", prop.height,prop.color);
+            "ctx.fill(circle);", prop.height.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("triangle")){
             this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
             "ctx.beginPath();" +
             "var startPlotY = {Y}; " +
             "var startPlotX = {X};" +
-            "var alturaPlot = %f + startPlotY;" +
-            "var larguraPlot = (startPlotX / 2) + (%f / 2);" +
+            "var alturaPlot = %s + startPlotY;" +
+            "var larguraPlot = (startPlotX / 2) + (%s / 2);" +
             "ctx.moveTo(startPlotX, startPlotY); " +
             "ctx.lineTo((larguraPlot - startPlotX ), alturaPlot); " +
             "ctx.lineTo((startPlotX + larguraPlot), alturaPlot);" +
             "ctx.closePath();" +
             "ctx.fillStyle = \"%s\";" +
-            "ctx.fill();", prop.height,prop.width,prop.color);
+            "ctx.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("trapezio")){
             this.plotDraw = String.format(Locale.US,"var context = canvas.getContext(\"2d\");" +
-            "var altura = %f;" +
-            "var largura = %f;" +
+            "var altura = %s;" +
+            "var largura = %s;" +
             "var beginXplot = {X};" +
             "var beginYplot = {Y}" +
             "var beginXbase = beginXplot - largura / 10;" +
@@ -136,7 +136,7 @@ public class Desing extends Sketch {
             "context.lineTo(beginXbase, beginYplot + altura);" +
             "context.closePath();" +
             "ctx.fillStyle = \"%s\";" +
-            "context.fill();", prop.height,prop.width,prop.color);
+            "context.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else{
             throw new RuntimeException("ERRO:Sketch not complete");
