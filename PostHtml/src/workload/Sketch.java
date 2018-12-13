@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,6 +14,9 @@ import java.util.Map;
  * @author elmr
  */
 public abstract class Sketch extends Expr {
+    
+
+    
     public static Sketch mkColor(String colorName){
         return new Color(colorName);
     }

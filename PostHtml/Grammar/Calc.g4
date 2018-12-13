@@ -28,11 +28,15 @@ inicio returns [List<Expr> result]
 statement returns [Expr result]
     : e=expr SEMI       {$result = $e.result;}
     | a=assign SEMI     {$result = $a.result;}
+    | f=createFunc      {$result = $f.result;}
     | i=ifExpr          {$result = $i.result;}
     | w=whileExpr       {$result = $w.result;}
     | b=block           {$result = $b.result;}
     ;
 
+createFunc returns [Expr result]
+    : KEYCREATEF IDENT LPAR a = argList RPAR block  {$result = mkFunction($IDENT.text, $block.result, $a.args);}
+    ;
 ifExpr returns [Expr result]
     : IF c=bexpr THEN t=statement
       {$result = mkIf($c.result, $t.result);}
@@ -204,8 +208,9 @@ GREEN: 'green';
 PINK: 'pink';
 YELLOW: 'yellow';
 
-DRAWID  : 'skt' | 'SKT';
+DRAWID  : 'skt';
 
+KEYCREATEF  : 'def';
 IDENT   : [_a-zA-Z][_a-zA-Z0-9]*;
 HEX_NUM : [_0-9][_a-zA-Z0-9]*;
 

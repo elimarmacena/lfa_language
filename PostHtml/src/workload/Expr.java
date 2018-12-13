@@ -59,6 +59,14 @@ public abstract class Expr {
     public static Expr mkFunCall(String fname, List<Expr> args) {
         return new FunCall(fname, args);
     }
+   
+    public static Sketch mkFunction(String funcName,Expr bloco,Expr... args){
+        return mkFunction(funcName,bloco,Arrays.asList(args));
+    }
+    
+    public static Sketch mkFunction(String funcName, Expr bloco, List<Expr> args){
+        return new UserFunction(funcName,args,(Block)bloco);
+    }
     
     public static Expr mkIf(Expr cond, Expr thenExpr) {
         return new If(cond, thenExpr);

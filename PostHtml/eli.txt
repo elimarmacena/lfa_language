@@ -1,10 +1,4 @@
-skt test3 = rectangle  175 32 #7FFFD4;
-skt test2 = rectangle  110 55 #e600ff;
-skt test1 = rectangle  55 120 #8B4513;
-
-draw(0,0,test1);
-draw(0,0,test3);
-draw(0,0,test2);
-
-skt teste = pentagon 100 100 green;
-draw(200,200,teste);
+def teste(bla,txt){
+skt bb = square 100 black;
+}
+teste(1,2);
