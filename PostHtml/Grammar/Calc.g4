@@ -35,7 +35,7 @@ statement returns [Expr result]
     ;
 
 createFunc returns [Expr result]
-    : KEYCREATEF IDENT LPAR a = argList RPAR block  {$result = mkFunction($IDENT.text, $block.result, $a.args);}
+    : KEYCREATEF (IDENT) | (DRAWID IDENT) LPAR a = argList RPAR block  {$result = mkFunction($IDENT.text, $block.result, $a.args);}
     ;
 ifExpr returns [Expr result]
     : IF c=bexpr THEN t=statement

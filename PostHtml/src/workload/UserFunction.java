@@ -25,9 +25,33 @@ public class UserFunction extends Sketch{
         this.code = code;
     }
 
+/*
+ =========================================================================================
+ |AINDA NAO FOI TESTADO, FIZ SEM ESTAR NO NETBEANS, PROVAVELMENTE A CLASSE PRECISE SER   |
+ |ALTERADA, POREM O METODO ABAIXO SEGUE A IDEIA DO QUE PRECISA SER FEITO PARA QUE SEJA   |
+ |POSSIVEL AVALIAR UMA FUNCAO CRIADA PELO USUARIO, SE EU ALGUEM PEGAR PRIMEIRO QUE EU    |
+ |PELO AMOR DE DEUS RESOLVE ISSO                                                         |
+ =========================================================================================
+*/
+
     @Override
     public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        ctx.put(this.fname, this.code);
+        ctx.put(this.fname, new Function(null){
+            @Override
+            public Expr apply(List<Expr> params, Map<String,Expr> ctx, FileWriter fw, int identLevel) {
+                if (params.size() != this.args.size()){
+                    String erroMsg = String.formart("FUNCTION ERRO: Wrong number of arguments. Expecting %d; Found: %d.",this.args.size(),params.size());
+                    throw new IllegalArgumentException(erroMsg);
+                }
+                Map<String, Expr> functionCtx = new HashMap<>();
+                int parameterIndex = 0;
+                For(Expr data : params){
+                    functionCtx.put(this.args.get(parameterIndex),data);
+                    parameterIndex++;
+                }
+                return this.code.eval(functionCtx,fw,identLevel,false);
+            }
+        })
         return this;
     }
     
