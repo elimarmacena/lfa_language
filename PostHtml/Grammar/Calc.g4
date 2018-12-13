@@ -149,8 +149,10 @@ shape returns[Sketch result]:
     ;
 
 property returns[Sketch result]:
-    height = NUMERO width = NUMERO pColor = color 
-    {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),mkNumeric(Double.parseDouble($width.text)),$pColor.result);}
+    height = NUMERO pColor = color                      {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),$pColor.result);}//USADO PARA FORMAS QUE NECESSITAM DE APENAS UM PARAMETRO (CIRCLE E SQUARE)                                   
+    |height = NUMERO width = NUMERO pColor = color      {$result = mkProperty(mkNumeric(Double.parseDouble($height.text)),mkNumeric(Double.parseDouble($width.text)),$pColor.result);}
+    
+    
     ;
 
 color returns[Sketch result]:

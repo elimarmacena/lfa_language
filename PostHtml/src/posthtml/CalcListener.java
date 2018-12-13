@@ -1,4 +1,3 @@
-// Generated from /home/x/Área de Trabalho/lfa_language/PostHtml/Grammar/Calc.g4 by ANTLR 4.7
 package posthtml;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
