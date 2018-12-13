@@ -143,8 +143,6 @@ public class Desing extends Sketch {
         }
         
     }
-    
-    
 
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {

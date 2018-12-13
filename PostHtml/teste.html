@@ -1,5 +1,9 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
 var canvas = document.getElementById("myCanvas");
+
+var ctx = canvas.getContext('2d');var altura = 55.000000;var largura = 120.000000;var rectangle = new Path2D();rectangle.rect(10, 10, largura, altura);ctx.fillStyle = "#8B4513";ctx.fill(rectangle);
+var ctx = canvas.getContext('2d');var altura = 175.000000;var largura = 32.000000;var rectangle = new Path2D();rectangle.rect(10, 10, largura, altura);ctx.fillStyle = "#7FFFD4";ctx.fill(rectangle);
+var ctx = canvas.getContext('2d');var altura = 110.000000;var largura = 55.000000;var rectangle = new Path2D();rectangle.rect(10, 10, largura, altura);ctx.fillStyle = "#e600ff";ctx.fill(rectangle);
 var ctx = canvas.getContext('2d');ctx.beginPath();var altura = 100.000000;var begin ={x:200.0,y:200.0};var Base = {x:begin.x, y:(altura+begin.y)};ctx.moveTo(Base.x, Base.y);var radius = (100.000000 / 2);var sidesNumber = 5;for(var i=1;i<=sidesNumber; ++i){	var th = i * 2 * Math.PI/sidesNumber;	var x = Base.x + radius * Math.sin(th);	var y = Base.y  + radius - radius * Math.cos(th);	ctx.lineTo(x,y);}ctx.fillStyle = "#33cc33";ctx.fill();
 </script>

@@ -42,6 +42,9 @@ public class Color extends Sketch {
         else if (colorName.equalsIgnoreCase("white")){
             this.color = "#ffffff";
         }
+        else if (colorName.matches("#(\\w{6})")) {
+            this.color = colorName;
+        }
         else{
             throw new RuntimeException("ERRO: color type not found.");
         }
