@@ -23,7 +23,13 @@ public class Desing extends Sketch {
             |SEJA POSTO O NUMERO SEPARADO POR . E NAO POR ,                    |
             ====================================================================
         */
+
         if (shape.value.equalsIgnoreCase("square")){
+        /*
+            ====================================================================
+            |FAZ USO DE APENAS UM PARAMETRO PARA SUA CRIACAO                   |
+            ====================================================================
+        */
             this.plotDraw = String.format(Locale.US,"var altura = %s;" +
                 "var squareLargura = altura;" +
                 "var rectangle = new Path2D();" +
@@ -32,7 +38,13 @@ public class Desing extends Sketch {
                 "ctx.fill(rectangle);"  
                ,prop.height.toString(), prop.color );
         }
+
         else if (shape.value.equalsIgnoreCase("rectangle")){
+        /*
+            ====================================================================
+            |SEMELHANTE AO QUADRADO POREM FAZENDO USO DE DUAS MEDIDAS          |
+            ====================================================================
+        */
             this.plotDraw = String.format(Locale.US,"var altura = %s;" +
             "var rectangleLargura = %s;" +
             "var rectangle = new Path2D();" +
@@ -41,7 +53,14 @@ public class Desing extends Sketch {
             "ctx.fill(rectangle);"
             ,prop.height.toString(), prop.width.toString(),prop.color );
         }
+        
         else if (shape.value.equalsIgnoreCase("oval")){
+        /*
+            ====================================================================
+            |AO SER DESENHADO A INFORMACAO PASSADA PELO O USUARIO IRA REPRESEN |
+            |TAR O CENTRO DO DESENHO E NAO SEU PONTO MAIS ALTO.                |
+            ====================================================================
+        */
             this.plotDraw = String.format(Locale.US,"var centerX = {X};" +
             "var centerY = {Y};" +
             "var ovalLargura = %s;" +
@@ -53,11 +72,11 @@ public class Desing extends Sketch {
             ,prop.width.toString(), prop.height.toString(), prop.color );
         }
         else if (shape.value.equalsIgnoreCase("pentagon")){
-            /*
+        /*
             ====================================================================
             |O RAIO REPRESENTA A METADE DA LARGURA INFORMADA PELO USUARIO      |
             ====================================================================
-            */
+        */
             this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
             "var pentagonAltura = %s;"+
             "var begin ={x:{X},y:{Y}};"+
@@ -74,11 +93,11 @@ public class Desing extends Sketch {
             "ctx.fill();", prop.height.toString(), prop.width.toString(),prop.color);
         }
         else if(shape.value.equalsIgnoreCase("octagon")){
-            /*
+        /*
             ====================================================================
             |O RAIO REPRESENTA A METADE DA LARGURA INFORMADA PELO USUARIO      |
             ====================================================================
-            */
+        */
             this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
             "var alturaOctagon = %s;"+
             "var begin ={x:{X},y:{Y}};"+
@@ -115,6 +134,12 @@ public class Desing extends Sketch {
             "ctx.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("trapezio")){
+            /*
+            ====================================================================
+            |A SUA PARTE SUPERIOR SEMPRE SERA SEPRESENTADA PELA LARGURA PASSADA|
+            |MENOS 1/5 DA MESMA EM AMBAS AS PONTAS, DANDO ASSIM A FORMA CORRETA|
+            ====================================================================
+        */
             this.plotDraw = String.format(Locale.US,"var altura = %s;" +
             "var trapezioLargura = %s;" +
             "var beginXplot = {X};" +
