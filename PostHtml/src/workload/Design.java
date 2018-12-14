@@ -14,9 +14,9 @@ import java.util.Map;
  *
  * @author elmr
  */
-public class Desing extends Sketch {
+public class Design extends Sketch {
     public final String plotDraw;
-    public Desing(Shape shape, Property prop){
+    public Design(Shape shape, Property prop){
         /*  ====================================================================
             |DEFINICAO DO CODIGO PARA O PLOT DA FIGURA INFORMADA PELO USUARIO.  |
             |EH FEITO USO DE LOCALE.US PARA QUE AO INSERIR UM FLOAT EM UMA STR |

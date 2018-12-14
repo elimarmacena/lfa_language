@@ -115,7 +115,7 @@ public class Predef {
                         params.size());
                 throw new IllegalArgumentException(msg);
             }
-            Desing result = (Desing) params.get(2).eval(ctx, null, identLevel, false);
+            Design result = (Design) params.get(2).eval(ctx, null, identLevel, false);
             String plot = result.plotDraw;
             plot = plot.replace("{X}", params.get(0).toString());
             plot = plot.replace("{Y}", params.get(1).toString());

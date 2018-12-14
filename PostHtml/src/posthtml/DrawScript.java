@@ -16,7 +16,7 @@ import workload.Predef;
  *
  * @author jefferson
  */
-public class CalcJS {
+public class DrawScript {
 
 	/**
 	 * @param args the command line arguments

@@ -28,7 +28,7 @@ public abstract class Sketch extends Expr {
     }
     
     public static Sketch mkDesign(Sketch shape,Sketch prop){
-        return new Desing(((Shape)shape), ((Property)prop));
+        return new Design(((Shape)shape), ((Property)prop));
     }
     
     public static Sketch mkDrawAssing(String drawName, Sketch draw){
