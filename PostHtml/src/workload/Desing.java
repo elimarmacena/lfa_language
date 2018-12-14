@@ -24,9 +24,8 @@ public class Desing extends Sketch {
             ====================================================================
         */
         if (shape.value.equalsIgnoreCase("square")){
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-                "var altura = %s;" +
-                "var largura = altura;" +
+            this.plotDraw = String.format(Locale.US,"var altura = %s;" +
+                "var squareLargura = altura;" +
                 "var rectangle = new Path2D();" +
                 "rectangle.rect({X}, {Y}, largura, altura);" +
                 "ctx.fillStyle = \"%s\";"+
@@ -34,9 +33,8 @@ public class Desing extends Sketch {
                ,prop.height.toString(), prop.color );
         }
         else if (shape.value.equalsIgnoreCase("rectangle")){
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "var altura = %s;" +
-            "var largura = %s;" +
+            this.plotDraw = String.format(Locale.US,"var altura = %s;" +
+            "var rectangleLargura = %s;" +
             "var rectangle = new Path2D();" +
             "rectangle.rect({X}, {Y}, largura, altura);" +
             "ctx.fillStyle = \"%s\";"+
@@ -44,11 +42,10 @@ public class Desing extends Sketch {
             ,prop.height.toString(), prop.width.toString(),prop.color );
         }
         else if (shape.value.equalsIgnoreCase("oval")){
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "var centerX = {X};" +
+            this.plotDraw = String.format(Locale.US,"var centerX = {X};" +
             "var centerY = {Y};" +
-            "var largura = %s;" +
-            "var altura = %s;" +
+            "var ovalLargura = %s;" +
+            "var ovalAltura = %s;" +
             "ctx.beginPath();" +
             "ctx.ellipse(centerX, centerY, largura, altura, 0, 0, 2 * Math.PI);" +
             "ctx.fillStyle = \"%s\";"+
@@ -61,9 +58,8 @@ public class Desing extends Sketch {
             |O RAIO REPRESENTA A METADE DA LARGURA INFORMADA PELO USUARIO      |
             ====================================================================
             */
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "ctx.beginPath();" +
-            "var altura = %s;"+
+            this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
+            "var pentagonAltura = %s;"+
             "var begin ={x:{X},y:{Y}};"+
             "var Base = {x:begin.x, y:(altura+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
@@ -83,9 +79,8 @@ public class Desing extends Sketch {
             |O RAIO REPRESENTA A METADE DA LARGURA INFORMADA PELO USUARIO      |
             ====================================================================
             */
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "ctx.beginPath();" +
-            "var altura = %s;"+
+            this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
+            "var alturaOctagon = %s;"+
             "var begin ={x:{X},y:{Y}};"+
             "var Base = {x:begin.x, y:(altura+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
@@ -101,15 +96,13 @@ public class Desing extends Sketch {
         }
         
         else if (shape.value.equalsIgnoreCase("circle")){
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "var circle = new Path2D();" +
+            this.plotDraw = String.format(Locale.US,"var circle = new Path2D();" +
             "circle.arc({X}, {Y}, %s, 0, 2 * Math.PI);" +
             "ctx.fillStyle = \"%s\";"+
             "ctx.fill(circle);", prop.height.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("triangle")){
-            this.plotDraw = String.format(Locale.US,"var ctx = canvas.getContext('2d');" +
-            "ctx.beginPath();" +
+            this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
             "var startPlotY = {Y}; " +
             "var startPlotX = {X};" +
             "var alturaPlot = %s + startPlotY;" +
@@ -122,9 +115,8 @@ public class Desing extends Sketch {
             "ctx.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("trapezio")){
-            this.plotDraw = String.format(Locale.US,"var context = canvas.getContext(\"2d\");" +
-            "var altura = %s;" +
-            "var largura = %s;" +
+            this.plotDraw = String.format(Locale.US,"var altura = %s;" +
+            "var trapezioLargura = %s;" +
             "var beginXplot = {X};" +
             "var beginYplot = {Y}" +
             "var beginXbase = beginXplot - largura / 10;" +

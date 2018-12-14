@@ -37,6 +37,7 @@ public class CalcJS {
 		fw.write("<script>\n");
 		//PARA REDUZIR TEMPO DE PROCESSAMENTO O ELEMENTO DO HTML EH BUSCADO APENAS UMA VEZ
 		fw.write("var canvas = document.getElementById(\"myCanvas\");");
+		fw.write("var ctx = canvas.getContext('2d');");
 		fw.flush();
 
 
