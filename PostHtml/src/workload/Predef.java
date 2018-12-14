@@ -91,11 +91,11 @@ public class Predef {
                 throw new IllegalArgumentException(msg);
 
             }
-            double beginX = ((Numeric)params.get(0)).value;
-            double beginY = ((Numeric)params.get(1)).value;
-            double endX = ((Numeric)params.get(2)).value;
-            double endY = ((Numeric)params.get(3)).value;
-            String drawLine = String.format(Locale.US,"var ctx = canvas.getContext('2d');\n ctx.moveTo(%f, %f);\n ctx.lineTo(%f, %f);\n ctx.stroke();", beginX, beginY, endX, endY);
+            String beginX = params.get(0).toString();
+            String beginY = params.get(1).toString();
+            String endX = params.get(2).toString();
+            String endY = params.get(3).toString();
+            String drawLine = String.format(Locale.US,"ctx.moveTo(%s, %s);\n ctx.lineTo(%s, %s);\n ctx.stroke();", beginX, beginY, endX, endY);
             writeJS(drawLine, fw, identLevel);
             return UNIT;
         }

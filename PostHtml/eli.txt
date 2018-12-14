@@ -1,19 +1,5 @@
-def soma (a, b){
-    return a + b;
+def soma(x,y){
+	return x+y;
 }
-
-def teste(x , y){
-    skt bb = rectangle 100 100 black;
-    draw(x,y,bb);
-    return soma(x, y);
-}
-i = 3;
-a = 0;
-b = 0;
-
-while i > 0 do {
-    teste(a,b);
-    a = a + 100;
-    b = b + 150;
-    i = i - 1;
-}
+numeroTest = soma(10,5);
+drawline(10,numeroTest,100, numeroTest);
