@@ -1,7 +1,19 @@
-def teste(width , heigth){
-    skt bb = rectangle heigth width black;
-    draw(100,100,bb);
+def soma (a, b){
+    return a + b;
 }
 
-teste(100,200);
-teste(500,100);
+def teste(x , y){
+    skt bb = rectangle 100 100 black;
+    draw(x,y,bb);
+    return soma(x, y);
+}
+i = 3;
+a = 0;
+b = 0;
+
+while i > 0 do {
+    teste(a,b);
+    a = a + 100;
+    b = b + 150;
+    i = i - 1;
+}

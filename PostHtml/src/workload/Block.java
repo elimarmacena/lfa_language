@@ -26,6 +26,7 @@ public class Block extends Expr {
         for(Expr e: exprList) {
             writeJS("\n",fw, identLevel);
             result = e.eval(ctx, fw, identLevel + 1, changeCtx);
+            if (e instanceof Return) break;
         }
         writeJS("\n",fw, 0);
         writeJS("}",fw, identLevel);
@@ -35,8 +36,8 @@ public class Block extends Expr {
     @Override
     public String toString() {
         List<String> xs = exprList.stream().map(x -> x.toString()).collect(Collectors.toList());
-        String xss = String.join("; ", xs);
-        return String.format("Block(%s)", xss);
+        String xss = String.join("\t; ", xs);
+        return String.format("{\n%s\n}", xss);
     }
     
     @Override

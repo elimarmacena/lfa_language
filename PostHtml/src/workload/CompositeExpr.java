@@ -28,12 +28,16 @@ public class CompositeExpr extends Expr {
 
     @Override
     public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        Expr result = UNIT;
         LinkedList<Expr> params = new LinkedList<>();
+        
         for (Expr x: subexprs) {
             Expr y = x.eval(ctx, null, identLevel);
             params.add(y);
         }
-        Expr result = app.apply(params, ctx, fw, identLevel);
+        
+        boolean isToApply = !ctx.values().stream().anyMatch(x -> x instanceof Unit);
+        if (isToApply) result = app.apply(params, ctx, fw, identLevel);
         return result;
     }
     

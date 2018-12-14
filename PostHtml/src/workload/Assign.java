@@ -21,17 +21,13 @@ public class Assign extends Expr {
 
     @Override
     public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
-        Expr value = expr.eval(ctx, (expr instanceof Variable) ? null : fw, identLevel);
+        Expr value = expr.eval(ctx, (expr instanceof Variable || expr instanceof FunCall) ? null : fw, identLevel);
         
         if (fw != null){
             Expr e = ctx.get(varName);
             
-            String valueStr = null;
-            if (changeCtx)  valueStr = value.toString();
-            else            valueStr = expr.toString();
-            
-            if(e != null && e instanceof Numeric) writeJS(varName + " = " + valueStr, fw, identLevel);
-            else writeJS("var " + varName + " = " + valueStr, fw, identLevel);
+            if(e != null) writeJS(varName + " = " + expr.toString(), fw, identLevel);
+            else          writeJS("var " + varName + " = " + expr.toString(), fw, identLevel);
         }
         
         if (changeCtx) ctx.put(varName, value);
@@ -42,7 +38,7 @@ public class Assign extends Expr {
     @Override
     public String toString() {
         String sx = expr.toString();
-        return String.format("Assign(%s, %s)", varName, sx);
+        return String.format("%s = %s", varName, sx);
     }
 
     @Override

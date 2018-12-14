@@ -26,12 +26,12 @@ inicio returns [List<Expr> result]
  * nossos statements retornam valores.
  */
 statement returns [Expr result]
-    : e=expr SEMI       {$result = $e.result;}
-    | a=assign SEMI     {$result = $a.result;}
-    | f=createFunc      {$result = $f.result;}
-    | i=ifExpr          {$result = $i.result;}
-    | w=whileExpr       {$result = $w.result;}
-    | b=block           {$result = $b.result;}
+    : e=expr SEMI           {$result = $e.result;}
+    | a=assign SEMI         {$result = $a.result;}
+    | f=createFunc          {$result = $f.result;}
+    | i=ifExpr              {$result = $i.result;}
+    | w=whileExpr           {$result = $w.result;}
+    | b=block               {$result = $b.result;}
     ;
 
 createFunc returns [Expr result]
@@ -62,6 +62,7 @@ sttmtSeq returns [List<Expr> sttmts]
 
 expr returns [Expr result]
     : e=bexpr           {$result = $e.result;}
+    | RETURN r=bexpr    {$result = mkReturn($r.result);}
     ;
 
 assign returns [Expr result]
@@ -184,6 +185,7 @@ THEN    : 'then' ;
 ELSE    : 'else' ;
 WHILE   : 'while' ;
 DO      : 'do' ;
+RETURN  : 'return';
 
 
 //SHAPES

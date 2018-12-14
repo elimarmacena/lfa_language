@@ -52,7 +52,7 @@ public class If extends Expr {
 
     @Override
     public String toString() {
-        return String.format("If(%s, %s, %s)", cond, thenExpr, elseExpr);
+        return String.format("if %s %s %s", cond, thenExpr, elseExpr instanceof Unit ? "": elseExpr);
     }
 
 }

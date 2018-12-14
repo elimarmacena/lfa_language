@@ -1,10 +1,22 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
-var canvas = document.getElementById("myCanvas");
-var teste = function (width, heigth) {
-
-    var ctx = canvas.getContext('2d');var altura = heigth;var largura = width;var rectangle = new Path2D();rectangle.rect(100.0, 100.0, largura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
+var canvas = document.getElementById("myCanvas");var ctx = canvas.getContext('2d');
+var soma = function (a, b) {
+    return (a + b)
 };
-teste(100.0, 200.0)
-teste(500.0, 100.0)
+
+var teste = function (x, y) {
+
+    var altura = 100.0;var rectangleLargura = 100.0;var rectangle = new Path2D();rectangle.rect(x, y, rectangleLargura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
+    return soma(x, y)
+};
+var i = 3.0
+var a = 0.0
+var b = 0.0
+while (i > 0.0) {
+    teste(0.0, 0.0)
+    a = (a + 100.0)
+    b = (b + 150.0)
+    i = (i - 1.0)
+}
 </script>

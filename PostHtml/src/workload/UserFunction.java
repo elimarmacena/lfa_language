@@ -69,7 +69,12 @@ public class UserFunction extends Function{
         Map<String, Expr> newCtx = new LinkedHashMap<>();
         newCtx.putAll(ctx);
         
-        code.eval(newCtx, fw, identLevel);
+        for (Expr arg:args)
+            newCtx.put(arg.toString(), arg);
+        
+        newCtx.put("paulinho", UNIT);
+        
+        code.eval(newCtx, fw, identLevel, false);
         writeJS(";", fw, identLevel);
         
         return this;

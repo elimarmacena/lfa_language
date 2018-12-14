@@ -24,7 +24,7 @@ public class DrawAssing extends Sketch{
     
     @Override
     public String toString(){
-        return String.format("skt %s = %s", this.drawName,this.draw.toString());
+        return draw.toString();
     }
 
     @Override

@@ -36,7 +36,7 @@ public class Desing extends Sketch {
             this.plotDraw = String.format(Locale.US,"var altura = %s;" +
             "var rectangleLargura = %s;" +
             "var rectangle = new Path2D();" +
-            "rectangle.rect({X}, {Y}, largura, altura);" +
+            "rectangle.rect({X}, {Y}, rectangleLargura, altura);" +
             "ctx.fillStyle = \"%s\";"+
             "ctx.fill(rectangle);"
             ,prop.height.toString(), prop.width.toString(),prop.color );
@@ -47,7 +47,7 @@ public class Desing extends Sketch {
             "var ovalLargura = %s;" +
             "var ovalAltura = %s;" +
             "ctx.beginPath();" +
-            "ctx.ellipse(centerX, centerY, largura, altura, 0, 0, 2 * Math.PI);" +
+            "ctx.ellipse(centerX, centerY, ovalLargura, ovalAltura, 0, 0, 2 * Math.PI);" +
             "ctx.fillStyle = \"%s\";"+
             "ctx.fill();"
             ,prop.width.toString(), prop.height.toString(), prop.color );
@@ -61,7 +61,7 @@ public class Desing extends Sketch {
             this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
             "var pentagonAltura = %s;"+
             "var begin ={x:{X},y:{Y}};"+
-            "var Base = {x:begin.x, y:(altura+begin.y)};" +
+            "var Base = {x:begin.x, y:(pentagonAltura+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
             "var radius = (%s / 2);" +
             "var sidesNumber = 5;" +
@@ -82,7 +82,7 @@ public class Desing extends Sketch {
             this.plotDraw = String.format(Locale.US,"ctx.beginPath();" +
             "var alturaOctagon = %s;"+
             "var begin ={x:{X},y:{Y}};"+
-            "var Base = {x:begin.x, y:(altura+begin.y)};" +
+            "var Base = {x:begin.x, y:(alturaOctagon+begin.y)};" +
             "ctx.moveTo(Base.x, Base.y);" +
             "var radius = (%s / 2);" +
             "var sidesNumber = 8;" +
@@ -119,9 +119,9 @@ public class Desing extends Sketch {
             "var trapezioLargura = %s;" +
             "var beginXplot = {X};" +
             "var beginYplot = {Y}" +
-            "var beginXbase = beginXplot - largura / 10;" +
-            "var endXbase = beginXbase + largura;" +
-            "var superiorTrap = beginXplot + largura - largura / 5;" +
+            "var beginXbase = beginXplot - trapezioLargura / 10;" +
+            "var endXbase = beginXbase + trapezioLargura;" +
+            "var superiorTrap = beginXplot + trapezioLargura - trapezioLargura / 5;" +
             "context.moveTo(beginXplot, beginYplot);" +
             "context.lineTo(superiorTrap, beginYplot);" +
             "context.lineTo(endXbase, beginYplot + altura);" +
@@ -139,5 +139,10 @@ public class Desing extends Sketch {
     @Override
     public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return plotDraw;
     }
 }

@@ -83,4 +83,8 @@ public abstract class Expr {
     public static Expr mkBlock(List<Expr> exprList) {
         return new Block(exprList);
     }
+    
+    public static Expr mkReturn(Expr expr){
+        return new Return(expr);
+    }
 }
