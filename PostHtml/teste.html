@@ -4,8 +4,13 @@ var canvas = document.getElementById("myCanvas");var ctx = canvas.getContext('2d
 var soma = function (x, y) {
     return (x + y)
 };
-var numeroTest = soma(10.0, 5.0)
-ctx.moveTo(10.0, numeroTest);
- ctx.lineTo(100.0, numeroTest);
+var numeroTest = soma(50.0, 150.0)
+var numeroControle = 100.0
+while (numeroControle > 0.0) {
+    var alturaDesenho = (numeroControle * 10.0)
+    ctx.moveTo(10.0, alturaDesenho);
+ ctx.lineTo(numeroTest, alturaDesenho);
  ctx.stroke();
+    numeroControle = (numeroControle - 10.0)
+}
 </script>

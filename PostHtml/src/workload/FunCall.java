@@ -34,19 +34,10 @@ public class FunCall extends Expr {
         }
         Applicable f = (Applicable) x;
         boolean isToPrint = !(f instanceof Function && ((Function)f).isIO);
-        List<Expr> params = new LinkedList<>();
-        for (Expr e: args) {
-            Expr y = e.eval(ctx,isToPrint && !(e instanceof Variable) ? fw : null,0);
-            if (y instanceof Return){
-                params.add(e);
-            }else{
-                params.add(y);
-            }
-        }
         
         jsRepr = f.jsRepr;
         
-    return f.apply(params, ctx, fw, identLevel);
+    return f.apply(args, ctx, fw, identLevel);
     }
     
     @Override

@@ -30,7 +30,7 @@ public class Assign extends Expr {
             else          writeJS("var " + varName + " = " + expr.toString(), fw, identLevel);
         }
         
-        if (changeCtx) ctx.put(varName, value);
+        ctx.put(varName, value);
 
         return value;
     }

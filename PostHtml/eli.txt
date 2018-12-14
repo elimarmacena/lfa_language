@@ -1,5 +1,10 @@
 def soma(x,y){
 	return x+y;
 }
-numeroTest = soma(10,5);
-drawline(10,numeroTest,100, numeroTest);
+numeroTest = soma(50,150);
+numeroControle = 100;
+while(numeroControle>0) do{
+    alturaDesenho = numeroControle * 10;
+    drawline(10,alturaDesenho,numeroTest, alturaDesenho);
+    numeroControle = numeroControle - 10;
+}
