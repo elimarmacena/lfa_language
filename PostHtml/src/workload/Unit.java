@@ -3,10 +3,6 @@ package workload;
 import java.io.FileWriter;
 import java.util.Map;
 
-/**
- *
- * @author jefferson
- */
 public class Unit extends Expr {
     
     // The constructor is 'package private'.

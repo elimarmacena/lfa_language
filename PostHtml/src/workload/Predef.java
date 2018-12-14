@@ -8,10 +8,6 @@ import static java.lang.String.format;
 import java.util.Locale;
 import java.util.Map;
 
-/**
- *
- * @author jefferson
- */
 public class Predef {
     
     public static final Function SIN = new Function("Math.sinh") {

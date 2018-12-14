@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- *
- * @author jefferson
- */
 public class Numeric extends Expr implements Comparable<Numeric> {
 
     public final Double value;

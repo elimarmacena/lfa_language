@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author jefferson
- */
 public class CompositeExpr extends Expr {
 
     private final Applicable app;

@@ -7,10 +7,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author jefferson
- */
 public abstract class Expr {
 
     public abstract Expr eval(Map<String,Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException;

@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package workload;
 
-/**
- *
- * @author elmr
- */
 public abstract class Sketch extends Expr {
     
     public static Sketch mkColor(String colorName){

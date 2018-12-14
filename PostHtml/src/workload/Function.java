@@ -1,9 +1,5 @@
 package workload;
 
-/**
- *
- * @author jefferson
- */
 public abstract class Function extends Applicable {
 
     protected boolean isIO = false;

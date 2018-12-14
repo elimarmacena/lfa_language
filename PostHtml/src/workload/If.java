@@ -4,10 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- *
- * @author jefferson
- */
 public class If extends Expr {
 
     private Expr cond;

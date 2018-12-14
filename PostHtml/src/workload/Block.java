@@ -7,10 +7,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author jefferson
- */
 public class Block extends Expr {
 
     private final List<Expr> exprList;

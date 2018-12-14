@@ -1,14 +1,9 @@
 package workload;
 
-
 import java.io.FileWriter;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author jefferson
- */
 public class Op {
     
     // =========================================================================

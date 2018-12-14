@@ -1,9 +1,5 @@
 package workload;
 
-/**
- *
- * @author jefferson
- */
 public abstract class Operator extends Applicable {
 
     public Operator(String jsRepr) {
