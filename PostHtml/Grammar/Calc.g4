@@ -153,92 +153,87 @@ shape returns[Sketch result]
     ;
 
 property returns[Sketch result]
-    : height = expr pColor = color                      {$result = mkProperty($height.result,$pColor.result);}//USADO PARA FORMAS QUE NECESSITAM DE APENAS UM PARAMETRO (CIRCLE E SQUARE)                                   
-    | height = expr width = expr pColor = color      {$result = mkProperty($height.result,$width.result,$pColor.result);}
+    : height = expr pColor = color              {$result = mkProperty($height.result,$pColor.result);}//USADO PARA FORMAS QUE NECESSITAM DE APENAS UM PARAMETRO (CIRCLE E SQUARE)
+    | height = expr width = expr pColor = color {$result = mkProperty($height.result,$width.result,$pColor.result);}
     ;
 
 color returns[Sketch result]
-    : RED {$result = mkColor($RED.text);}
-    | BLUE {$result = mkColor($BLUE.text);}
-    | BLACK {$result = mkColor($BLACK.text);}
-    | PURPLE {$result = mkColor($PURPLE.text);}
-    | YELLOW {$result = mkColor($YELLOW.text);}
-    | PINK {$result = mkColor($PINK.text);}
-    | GREEN {$result = mkColor($GREEN.text);}
-    | WHITE {$result = mkColor($WHITE.text);}
-    | CUSTOM {$result = mkColor($CUSTOM.text);}
+    : RED       {$result = mkColor($RED.text);}
+    | BLUE      {$result = mkColor($BLUE.text);}
+    | BLACK     {$result = mkColor($BLACK.text);}
+    | PURPLE    {$result = mkColor($PURPLE.text);}
+    | YELLOW    {$result = mkColor($YELLOW.text);}
+    | PINK      {$result = mkColor($PINK.text);}
+    | GREEN     {$result = mkColor($GREEN.text);}
+    | WHITE     {$result = mkColor($WHITE.text);}
+    | HEXCOLOR  {$result = mkColor($HEXCOLOR.text);}
     ;
 
-CUSTOM: HASH (IDENT | HEX_NUM);
+fragment DIGITS : [0-9]+;
+fragment ALPHA  : [a-zA-Z]+;
 
-fragment DIGITS: [0-9]+;
+NUMERO  : DIGITS ('.' DIGITS)?  ;
 
-NUMERO: DIGITS ('.' DIGITS)?
-      ;
-
-OR      : 'or';
-AND     : 'and';
-NOT     : 'not';
-IF      : 'if' ;
-THEN    : 'then' ;
-ELSE    : 'else' ;
-WHILE   : 'while' ;
-DO      : 'do' ;
-
+//LOGICAL OPERATORS, SELECT STRUCTURES, AND REPEAT STRUCTURE
+OR      : 'or'      ;
+AND     : 'and'     ;
+NOT     : 'not'     ;
+IF      : 'if'      ;
+THEN    : 'then'    ;
+ELSE    : 'else'    ;
+WHILE   : 'while'   ;
+DO      : 'do'      ;
 
 //SHAPES
-SQUARE: 'square';
-RECTANGLE: 'rectangle';
-OVAL: 'oval';
-PENTAGON: 'pentagon';
-OCTAGON: 'octagon';
-CIRCLE: 'circle';
-TRIANGLE: 'triangle';
-TRAPEZIO: 'trapezio';
+SQUARE      : 'square'      ;
+RECTANGLE   : 'rectangle'   ;
+OVAL        : 'oval'        ;
+PENTAGON    : 'pentagon'    ;
+OCTAGON     : 'octagon'     ;
+CIRCLE      : 'circle'      ;
+TRIANGLE    : 'triangle'    ;
+TRAPEZIO    : 'trapezio'    ;
 
 //COLORS
-RED: 'red';
-BLUE: 'blue';
-BLACK: 'black';
-PURPLE: 'purple';
-WHITE: 'white';
-GREEN: 'green';
-PINK: 'pink';
-YELLOW: 'yellow';
+RED     : 'red'     ;
+BLUE    : 'blue'    ;
+BLACK   : 'black'   ;
+PURPLE  : 'purple'  ;
+WHITE   : 'white'   ;
+GREEN   : 'green'   ;
+PINK    : 'pink'    ;
+YELLOW  : 'yellow'  ;
 
-DRAWID  : 'skt';
-
+//SKETCH IDENTIFIER, FUNCTION DEFINITION, VARIABLE NAME, AND COLOR
+DRAWID      : 'skt';
 KEYCREATEF  : 'def';
-IDENT   : [_a-zA-Z][_a-zA-Z0-9]*;
-HEX_NUM : [_0-9][_a-zA-Z0-9]*;
+IDENT       : ALPHA (ALPHA | '_' | DIGITS)*;
+HEXCOLOR    : HASH  (ALPHA | DIGITS)+;
 
-HASH : '#';
-GETS:   '=' ;
-PLUS:   '+' ;
-MINUS:  '-' ;
-TIMES:  '*' ;
-DIVIDE: '/' ;
-MOD:    '%' ;
-EXP:    '^' ;
-LPAR:   '(' ;
-RPAR:   ')' ;
-LBRC:   '{' ;
-RBRC:   '}' ;
-COMMA:  ',' ;
-SEMI:   ';' ;
+//GENERAL TOKEN (MATHEMATICAL SYMBOLS, STATEMENT MARKERS)
+HASH    :   '#';
+GETS    :   '=';
+PLUS    :   '+';
+MINUS   :   '-';
+TIMES   :   '*';
+DIVIDE  :   '/';
+MOD     :   '%';
+EXP     :   '^';
+LPAR    :   '(';
+RPAR    :   ')';
+LBRC    :   '{';
+RBRC    :   '}';
+COMMA   :   ',';
+SEMI    :   ';';
 
-EQU:    '==' ;
-NEQ:    '!=' ;
-LT:     '<';
-LEQ:    '<=';
-GT:     '>';
-GEQ:    '>=';
+//LOGICAL-MATHEMATICAL OPERATORS
+EQU :   '==';
+NEQ :   '!=';
+LT  :   '<' ;
+LEQ :   '<=';
+GT  :   '>' ;
+GEQ :   '>=';
 
-
-
-
-WS  : [ \t\r\n]+ -> skip 
-    ;
-
-COMMENT : '//' (~'\n')* -> skip
-        ;
+//SPACING CHARACTERS AND COMMENT IDENTIFIER
+WS      : [ \t\r\n]+    -> skip;
+COMMENT : '//' (~'\n')* -> skip;

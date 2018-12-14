@@ -1,7 +1,50 @@
-def teste(width , heigth){
-    skt bb = rectangle heigth width black;
-    draw(100,100,bb);
-}
+skt head = rectangle        65  55  #000000;
+skt body = rectangle        55  70  #000000;
+skt left_arm = rectangle    35  25  #000000;
+skt right_leg = rectangle   30  45  #000000;
+skt left_leg = rectangle    35  45  #000000;
 
-teste(100,200);
-teste(500,100);
+skt background = rectangle  110 120 #e5e5e5;
+
+skt azul_esc_10 =       square      10  10  #2570e9;
+skt azul_claro_10_15 =  rectangle   15  10  #2570e9;
+skt azul_esc_5_5 =      square      5   5   #2570e9;
+skt azul_claro_10 =     square      10  10  #4cbcfc;
+skt azul_claro_5 =      square      5  5    #4cbcfc;
+
+skt test2 = rectangle   20  25  #000000;
+skt test3 = square      15  15  #2570e9;
+skt test4 = square      5   5   #ffffff;
+skt test5 = square      5   5   #000000;
+skt test6 = rectangle   10  15  #2570e9;
+skt test7 = rectangle   10  15  #2570e9;
+skt test8 = rectangle   25  15  #4cbcfc;
+
+draw(0, 0, background);
+
+draw(40, 0, head);
+draw(25, 25, body);
+draw(0, 30, left_arm);
+draw(45, 80, right_leg);
+draw(0, 65, left_leg);
+
+draw(95, 40, test2);
+draw(100, 45, test3);
+draw(95, 40, test4);
+draw(115, 40, test4);
+draw(115, 60, test4);
+draw(110, 60, test5);
+draw(95, 60, test6);
+draw(90, 65, test7);
+
+draw(105, 65, test5);
+draw(100, 70, test5);
+draw(80, 55, test8);
+draw(10, 75, azul_esc_10);
+draw(5, 80, azul_esc_10);
+draw(15, 70, azul_esc_10);
+draw(20, 75, azul_claro_10_15);
+draw(25, 90, azul_esc_5_5);
+draw(30, 85, azul_claro_10);
+draw(30, 80, azul_claro_5);
+draw(45, 8, azul_claro_5);
