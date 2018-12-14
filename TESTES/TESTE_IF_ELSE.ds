@@ -1,0 +1,11 @@
+numeroSubtracao = 100;
+numeroPrincipal = 150;
+resultadoAritimetica = numeroPrincipal - numeroSubtracao;
+if (resultadoAritimetica > 100) then{
+    skt desenhoTrue = oval 100 100 purple;
+    draw(100,100,desenhoTrue);
+}
+else{
+    skt desenhoFalse = square 100 black;
+    draw(100,100,desenhoFalse);
+}

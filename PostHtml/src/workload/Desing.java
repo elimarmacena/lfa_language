@@ -106,29 +106,30 @@ public class Desing extends Sketch {
             "var startPlotY = {Y}; " +
             "var startPlotX = {X};" +
             "var alturaPlot = %s + startPlotY;" +
-            "var larguraPlot = (startPlotX / 2) + (%s / 2);" +
+            "var larguraPlot = startPlotX  + %s ;" +
             "ctx.moveTo(startPlotX, startPlotY); " +
-            "ctx.lineTo((larguraPlot - startPlotX ), alturaPlot); " +
-            "ctx.lineTo((startPlotX + larguraPlot), alturaPlot);" +
+            "ctx.lineTo(startPlotX, alturaPlot); " +
+            "ctx.lineTo(larguraPlot, alturaPlot);" +
             "ctx.closePath();" +
             "ctx.fillStyle = \"%s\";" +
             "ctx.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else if (shape.value.equalsIgnoreCase("trapezio")){
-            this.plotDraw = String.format(Locale.US,"var altura = %s;" +
+            this.plotDraw = String.format(Locale.US,"var trapezioAltura = %s;" +
             "var trapezioLargura = %s;" +
             "var beginXplot = {X};" +
-            "var beginYplot = {Y}" +
+            "var beginYplot = {Y};" +
             "var beginXbase = beginXplot - trapezioLargura / 10;" +
             "var endXbase = beginXbase + trapezioLargura;" +
             "var superiorTrap = beginXplot + trapezioLargura - trapezioLargura / 5;" +
-            "context.moveTo(beginXplot, beginYplot);" +
-            "context.lineTo(superiorTrap, beginYplot);" +
-            "context.lineTo(endXbase, beginYplot + altura);" +
-            "context.lineTo(beginXbase, beginYplot + altura);" +
-            "context.closePath();" +
+            "ctx.beginPath();"+
+            "ctx.moveTo(beginXplot, beginYplot);" +
+            "ctx.lineTo(superiorTrap, beginYplot);" +
+            "ctx.lineTo(endXbase, beginYplot + trapezioAltura );" +
+            "ctx.lineTo(beginXbase, beginYplot + trapezioAltura );" +
+            "ctx.closePath();" +
             "ctx.fillStyle = \"%s\";" +
-            "context.fill();", prop.height.toString(),prop.width.toString(),prop.color);
+            "ctx.fill();", prop.height.toString(),prop.width.toString(),prop.color);
         }
         else{
             throw new RuntimeException("ERRO:Sketch not complete");

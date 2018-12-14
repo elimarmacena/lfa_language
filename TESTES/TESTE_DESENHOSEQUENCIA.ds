@@ -1,0 +1,17 @@
+skt mainSquare = square 100 black;
+skt mainOval = oval 40 60 blue;
+controladorLoop = 20;
+controladorPlotX = 10;
+controladorPlotY = 10;
+while (controladorLoop > 0 ) do{
+
+    if (controladorLoop > 10) then{
+        draw(controladorPlotX,controladorPlotY,mainSquare);
+    }
+    else{
+        controladorPlotY = controladorPlotY + 50;
+        draw(controladorPlotX,controladorPlotY,mainOval);
+    }
+    controladorPlotX = controladorPlotX + 110;
+    controladorLoop = controladorLoop -5;
+}

@@ -1,18 +1,19 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
 var canvas = document.getElementById("myCanvas");var ctx = canvas.getContext('2d');
-var controladorLoop = 20.0
-while (controladorLoop > 0.0) {
-    var controladorPlotX = 1.0
-    var controladorPlotY = 10.0
-    if (controladorLoop < 10.0) {    
-        var altura = 100.0;var squareLargura = altura;var rectangle = new Path2D();rectangle.rect(controladorPlotX, controladorPlotY, squareLargura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
-    }
-    else {    
-        controladorPlotX = (controladorPlotX + 110.0)    
-        var altura = 100.0;var squareLargura = altura;var rectangle = new Path2D();rectangle.rect(controladorPlotX, controladorPlotY, squareLargura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
-    }
-    controladorPlotY = (controladorPlotY + 110.0)
-    controladorLoop = (controladorLoop - 1.0)
-}
+
+
+
+
+
+
+
+var altura = 100.0;var squareLargura = altura;var rectangle = new Path2D();rectangle.rect(1.0, 1.0, squareLargura, altura);ctx.fillStyle = "#ff3333";ctx.fill(rectangle);
+var altura = 100.0;var rectangleLargura = 50.0;var rectangle = new Path2D();rectangle.rect(110.0, 1.0, rectangleLargura, altura);ctx.fillStyle = "#00a3cc";ctx.fill(rectangle);
+var centerX = 250.0;var centerY = 35.0;var ovalLargura = 50.0;var ovalAltura = 20.0;ctx.beginPath();ctx.ellipse(centerX, centerY, ovalLargura, ovalAltura, 0, 0, 2 * Math.PI);ctx.fillStyle = "#1a1a1a";ctx.fill();
+ctx.beginPath();var pentagonAltura = 30.0;var begin ={x:40.0,y:110.0};var Base = {x:begin.x, y:(pentagonAltura+begin.y)};ctx.moveTo(Base.x, Base.y);var radius = (40.0 / 2);var sidesNumber = 5;for(var i=1;i<=sidesNumber; ++i){	var th = i * 2 * Math.PI/sidesNumber;	var x = Base.x + radius * Math.sin(th);	var y = Base.y  + radius - radius * Math.cos(th);	ctx.lineTo(x,y);}ctx.fillStyle = "#cc0099";ctx.fill();
+ctx.beginPath();var alturaOctagon = 30.0;var begin ={x:80.0,y:110.0};var Base = {x:begin.x, y:(alturaOctagon+begin.y)};ctx.moveTo(Base.x, Base.y);var radius = (40.0 / 2);var sidesNumber = 8;for(var i=1;i<=sidesNumber; ++i){	var th = i * 2 * Math.PI/sidesNumber;	var x = Base.x + radius * Math.sin(th);	var y = Base.y  + radius - radius * Math.cos(th);	ctx.lineTo(x,y);}ctx.fillStyle = "#33cc33";ctx.fill();
+var circle = new Path2D();circle.arc(150.0, 150.0, 40.0, 0, 2 * Math.PI);ctx.fillStyle = "#ff6699";ctx.fill(circle);
+ctx.beginPath();var startPlotY = 120.0; var startPlotX = 200.0;var alturaPlot = 50.0 + startPlotY;var larguraPlot = startPlotX  + 50.0 ;ctx.moveTo(startPlotX, startPlotY); ctx.lineTo(startPlotX, alturaPlot); ctx.lineTo(larguraPlot, alturaPlot);ctx.closePath();ctx.fillStyle = "#e6e600";ctx.fill();
+var trapezioAltura = 40.0;var trapezioLargura = 30.0;var beginXplot = 300.0;var beginYplot = 150.0;var beginXbase = beginXplot - trapezioLargura / 10;var endXbase = beginXbase + trapezioLargura;var superiorTrap = beginXplot + trapezioLargura - trapezioLargura / 5;ctx.beginPath();ctx.moveTo(beginXplot, beginYplot);ctx.lineTo(superiorTrap, beginYplot);ctx.lineTo(endXbase, beginYplot + trapezioAltura );ctx.lineTo(beginXbase, beginYplot + trapezioAltura );ctx.closePath();ctx.fillStyle = "#FBC5E4";ctx.fill();
 </script>
