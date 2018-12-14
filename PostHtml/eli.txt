@@ -1,10 +1,15 @@
-def soma(x,y){
-	return x+y;
-}
-numeroTest = soma(50,150);
-numeroControle = 100;
-while(numeroControle>0) do{
-    alturaDesenho = numeroControle * 10;
-    drawline(10,alturaDesenho,numeroTest, alturaDesenho);
-    numeroControle = numeroControle - 10;
+skt mainSquare = square 100 black;
+controladorLoop = 20;
+while (controladorLoop > 0 ) do{
+    controladorPlotX = 1;
+    controladorPlotY = 10;
+    if (controladorLoop < 10) then{
+        draw(controladorPlotX,controladorPlotY,mainSquare);
+    }
+    else{
+        controladorPlotX = controladorPlotX + 110;
+        draw(controladorPlotX,controladorPlotY,mainSquare);
+    }
+    controladorPlotY = controladorPlotY + 110;
+    controladorLoop = controladorLoop -1;
 }

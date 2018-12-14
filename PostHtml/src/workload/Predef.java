@@ -117,17 +117,8 @@ public class Predef {
             }
             Desing result = (Desing) params.get(2).eval(ctx, null, identLevel, false);
             String plot = result.plotDraw;
-            
-            boolean isToApply = !ctx.values().stream().anyMatch(x -> x instanceof Unit);
-            if (isToApply) {
-                Numeric plotX = (Numeric) params.get(0);
-                Numeric plotY = (Numeric) params.get(1);
-                plot = plot.replace("{X}", String.valueOf(plotX));
-                plot = plot.replace("{Y}", String.valueOf(plotY));
-            }else {
-                plot = plot.replace("{X}", params.get(0).toString());
-                plot = plot.replace("{Y}", params.get(1).toString());
-            }
+            plot = plot.replace("{X}", params.get(0).toString());
+            plot = plot.replace("{Y}", params.get(1).toString());
             
             writeJS(plot, fw, identLevel);
             return UNIT;

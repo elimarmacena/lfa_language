@@ -1,16 +1,18 @@
 <canvas id='myCanvas' width='720' height='1280'></canvas>
 <script>
 var canvas = document.getElementById("myCanvas");var ctx = canvas.getContext('2d');
-var soma = function (x, y) {
-    return (x + y)
-};
-var numeroTest = soma(50.0, 150.0)
-var numeroControle = 100.0
-while (numeroControle > 0.0) {
-    var alturaDesenho = (numeroControle * 10.0)
-    ctx.moveTo(10.0, alturaDesenho);
- ctx.lineTo(numeroTest, alturaDesenho);
- ctx.stroke();
-    numeroControle = (numeroControle - 10.0)
+var controladorLoop = 20.0
+while (controladorLoop > 0.0) {
+    var controladorPlotX = 1.0
+    var controladorPlotY = 10.0
+    if (controladorLoop < 10.0) {    
+        var altura = 100.0;var squareLargura = altura;var rectangle = new Path2D();rectangle.rect(controladorPlotX, controladorPlotY, squareLargura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
+    }
+    else {    
+        controladorPlotX = (controladorPlotX + 110.0)    
+        var altura = 100.0;var squareLargura = altura;var rectangle = new Path2D();rectangle.rect(controladorPlotX, controladorPlotY, squareLargura, altura);ctx.fillStyle = "#1a1a1a";ctx.fill(rectangle);
+    }
+    controladorPlotY = (controladorPlotY + 110.0)
+    controladorLoop = (controladorLoop - 1.0)
 }
 </script>

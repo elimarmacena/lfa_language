@@ -27,7 +27,7 @@ public class Desing extends Sketch {
             this.plotDraw = String.format(Locale.US,"var altura = %s;" +
                 "var squareLargura = altura;" +
                 "var rectangle = new Path2D();" +
-                "rectangle.rect({X}, {Y}, largura, altura);" +
+                "rectangle.rect({X}, {Y}, squareLargura, altura);" +
                 "ctx.fillStyle = \"%s\";"+
                 "ctx.fill(rectangle);"  
                ,prop.height.toString(), prop.color );
