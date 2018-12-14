@@ -183,6 +183,7 @@ THEN    : 'then'    ;
 ELSE    : 'else'    ;
 WHILE   : 'while'   ;
 DO      : 'do'      ;
+RETURN  : 'return'  ;
 
 //SHAPES
 SQUARE      : 'square'      ;
