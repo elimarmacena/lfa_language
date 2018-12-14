@@ -1,4 +1,4 @@
-grammar Calc;
+grammar DrawScript;
 
 @header {
 import workload.Expr;
