@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -15,51 +17,14 @@ public class Shape extends Sketch{
     public final String value;
     
     public Shape(String nameShape){
-        this.value= "";
-        if(nameShape.equalsIgnoreCase("square")){
-            //html para quadrado
-        }
-        else if (nameShape.equalsIgnoreCase("rectangle")){
-            //html para retangulo
-        }
-        else if (nameShape.equalsIgnoreCase("oval")){
-            //html para forma oval
-        }
-        else if (nameShape.equalsIgnoreCase("star")){
-            //html para estrela
-        }
-        else if (nameShape.equalsIgnoreCase("pentagon")){
-            //html para pentagono
-        }
-        else if (nameShape.equalsIgnoreCase("hexagon")){
-            //html para hexagono
-        }
-        else if (nameShape.equalsIgnoreCase("octagon")){
-            //html para octagono
-        }
-        else if (nameShape.equalsIgnoreCase("heart")){
-            //html para coracao
-        }
-        else if (nameShape.equalsIgnoreCase("circle")){
-            //html para circulo
-        }
-        else if (nameShape.equalsIgnoreCase("triangle")){
-            //html para triangulo
-        }
-        else if (nameShape.equalsIgnoreCase("trapezio")){
-            //html para trapezio
-        }
-        else if(nameShape.equalsIgnoreCase("page")){
-            //html para definicao da pagina
-        }
-        else{
-            throw new RuntimeException("ERRO: shape type not found.");
-        }
+        this.value = nameShape;
     }
-    
+
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
+    public Expr eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
         return this;
     }
+    
+
     
 }

@@ -5,6 +5,8 @@
  */
 package workload;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -17,28 +19,31 @@ public class Color extends Sketch {
     
     public Color(String colorName){
         if (colorName.equalsIgnoreCase("red")){
-            this.color = "background-color: #ff3333";
+            this.color = "#ff3333";
         }
         else if (colorName.equalsIgnoreCase("blue")){
-            this.color = "background-color: #00a3cc";
+            this.color = "#00a3cc";
         }
         else if (colorName.equalsIgnoreCase("black")){
-            this.color = "background-color: #1a1a1a";
+            this.color = "#1a1a1a";
         }
         else if (colorName.equalsIgnoreCase("purple")){
-            this.color = "background-color: #cc0099";
+            this.color = "#cc0099";
         }
         else if (colorName.equalsIgnoreCase("yellow")){
-            this.color = "background-color: #e6e600";
+            this.color = "#e6e600";
         }
         else if (colorName.equalsIgnoreCase("pink")){
-            this.color = "background-color: #ff6699";
+            this.color = "#ff6699";
         }
         else if (colorName.equalsIgnoreCase("green")){
-            this.color = "background-color: #33cc33";
+            this.color = "#33cc33";
         }
         else if (colorName.equalsIgnoreCase("white")){
-            this.color = "background-color: #ffffff";
+            this.color = "#ffffff";
+        }
+        else if (colorName.matches("#(\\w{6})")) {
+            this.color = colorName;
         }
         else{
             throw new RuntimeException("ERRO: color type not found.");
@@ -46,8 +51,9 @@ public class Color extends Sketch {
     }
 
     @Override
-    public Sketch eval(Map<String, Sketch> ctx) {
-        return this;
+    public Sketch eval(Map<String, Expr> ctx, FileWriter fw, int identLevel, boolean changeCtx) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

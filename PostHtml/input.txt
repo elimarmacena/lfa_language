@@ -1,0 +1,24 @@
+teste = 2;
+teste2 = 15;
+i = 0;
+
+while cos(teste2) != 1 do {
+	teste2 = teste2 - 1;
+
+	if teste2 % 2 == 0 then {
+		teste = 5 / teste;
+
+		if teste == 2.5 then {
+			teste3 = teste;
+		}
+	}
+	else{
+		i = i + 1;	
+	}
+}
+
+write(i);
+
+if cos(0) == 1 then xablau = 2;
+
+teste;
