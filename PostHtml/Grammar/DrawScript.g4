@@ -167,7 +167,7 @@ color returns[Sketch result]
     | PINK      {$result = mkColor($PINK.text);}
     | GREEN     {$result = mkColor($GREEN.text);}
     | WHITE     {$result = mkColor($WHITE.text);}
-    | HEXCOLOR {$result = mkColor(HEXCOLOR.text);}
+    | HEXCOLOR {$result = mkColor($HEXCOLOR.text);}
     ;
 fragment DIGITS : [0-9]+;
 fragment ALPHA  : [a-zA-Z]+;

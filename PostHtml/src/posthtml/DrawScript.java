@@ -43,11 +43,11 @@ public class DrawScript {
 
 		String code = readInput(br);
 		ANTLRInputStream input = new ANTLRInputStream(code);
-		posthtml.CalcLexer lexer = new posthtml.CalcLexer(input);
+		posthtml.DrawScriptLexer lexer = new posthtml.DrawScriptLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		posthtml.CalcParser parser = new CalcParser(tokens);
+		posthtml.DrawScriptParser parser = new DrawScriptParser(tokens);
 
-		CalcParser.InicioContext e = parser.inicio();
+		DrawScriptParser.InicioContext e = parser.inicio();
 
 		List<Expr> xs = e.result;
 
