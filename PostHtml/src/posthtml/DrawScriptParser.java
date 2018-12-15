@@ -1,4 +1,4 @@
-// Generated from C:\Users\joel-\Desktop\TRAB_LFA\PostHtml\Grammar\DrawScript.g4 by ANTLR 4.1
+// Generated from /home/x/Área de Trabalho/lfa_language/PostHtml/Grammar/DrawScript.g4 by ANTLR 4.7
 package posthtml;
 
 import workload.Expr;
@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class DrawScriptParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
@@ -31,15 +33,6 @@ public class DrawScriptParser extends Parser {
 		HASH=31, GETS=32, PLUS=33, MINUS=34, TIMES=35, DIVIDE=36, MOD=37, EXP=38, 
 		LPAR=39, RPAR=40, LBRC=41, RBRC=42, COMMA=43, SEMI=44, EQU=45, NEQ=46, 
 		LT=47, LEQ=48, GT=49, GEQ=50, WS=51, COMMENT=52;
-	public static final String[] tokenNames = {
-		"<INVALID>", "NUMERO", "'or'", "'and'", "'not'", "'if'", "'then'", "'else'", 
-		"'while'", "'do'", "'return'", "'square'", "'rectangle'", "'oval'", "'pentagon'", 
-		"'octagon'", "'circle'", "'triangle'", "'trapezio'", "'red'", "'blue'", 
-		"'black'", "'purple'", "'white'", "'green'", "'pink'", "'yellow'", "'skt'", 
-		"'def'", "IDENT", "HEXCOLOR", "'#'", "'='", "'+'", "'-'", "'*'", "'/'", 
-		"'%'", "'^'", "'('", "')'", "'{'", "'}'", "','", "';'", "'=='", "'!='", 
-		"'<'", "'<='", "'>'", "'>='", "WS", "COMMENT"
-	};
 	public static final int
 		RULE_inicio = 0, RULE_statement = 1, RULE_createFunc = 2, RULE_ifExpr = 3, 
 		RULE_whileExpr = 4, RULE_block = 5, RULE_sttmtSeq = 6, RULE_expr = 7, 
@@ -53,14 +46,65 @@ public class DrawScriptParser extends Parser {
 		"fator", "termo", "argList", "design", "shape", "property", "color"
 	};
 
+	private static final String[] _LITERAL_NAMES = {
+		null, null, "'or'", "'and'", "'not'", "'if'", "'then'", "'else'", "'while'", 
+		"'do'", "'return'", "'square'", "'rectangle'", "'oval'", "'pentagon'", 
+		"'octagon'", "'circle'", "'triangle'", "'trapezio'", "'red'", "'blue'", 
+		"'black'", "'purple'", "'white'", "'green'", "'pink'", "'yellow'", "'skt'", 
+		"'def'", null, null, "'#'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", 
+		"'^'", "'('", "')'", "'{'", "'}'", "','", "';'", "'==='", "'!=='", "'<'", 
+		"'<='", "'>'", "'>='"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, "NUMERO", "OR", "AND", "NOT", "IF", "THEN", "ELSE", "WHILE", "DO", 
+		"RETURN", "SQUARE", "RECTANGLE", "OVAL", "PENTAGON", "OCTAGON", "CIRCLE", 
+		"TRIANGLE", "TRAPEZIO", "RED", "BLUE", "BLACK", "PURPLE", "WHITE", "GREEN", 
+		"PINK", "YELLOW", "DRAWID", "KEYCREATEF", "IDENT", "HEXCOLOR", "HASH", 
+		"GETS", "PLUS", "MINUS", "TIMES", "DIVIDE", "MOD", "EXP", "LPAR", "RPAR", 
+		"LBRC", "RBRC", "COMMA", "SEMI", "EQU", "NEQ", "LT", "LEQ", "GT", "GEQ", 
+		"WS", "COMMENT"
+	};
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
+
+	@Override
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
+
 	@Override
 	public String getGrammarFileName() { return "DrawScript.g4"; }
 
 	@Override
-	public String[] getTokenNames() { return tokenNames; }
+	public String[] getRuleNames() { return ruleNames; }
 
 	@Override
-	public String[] getRuleNames() { return ruleNames; }
+	public String getSerializedATN() { return _serializedATN; }
 
 	@Override
 	public ATN getATN() { return _ATN; }
@@ -72,11 +116,11 @@ public class DrawScriptParser extends Parser {
 	public static class InicioContext extends ParserRuleContext {
 		public List<Expr> result;
 		public StatementContext s;
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
 		}
 		public InicioContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -89,6 +133,11 @@ public class DrawScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitInicio(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitInicio(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -108,7 +157,8 @@ public class DrawScriptParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NUMERO) | (1L << NOT) | (1L << IF) | (1L << WHILE) | (1L << RETURN) | (1L << DRAWID) | (1L << KEYCREATEF) | (1L << IDENT) | (1L << MINUS) | (1L << LPAR) | (1L << LBRC))) != 0)) {
 				{
 				{
-				setState(44); ((InicioContext)_localctx).s = statement();
+				setState(44);
+				((InicioContext)_localctx).s = statement();
 				_localctx.result.add(((InicioContext)_localctx).s.result);
 				}
 				}
@@ -137,21 +187,21 @@ public class DrawScriptParser extends Parser {
 		public IfExprContext i;
 		public WhileExprContext w;
 		public BlockContext b;
+		public TerminalNode SEMI() { return getToken(DrawScriptParser.SEMI, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
+		}
+		public AssignContext assign() {
+			return getRuleContext(AssignContext.class,0);
 		}
 		public CreateFuncContext createFunc() {
 			return getRuleContext(CreateFuncContext.class,0);
 		}
-		public WhileExprContext whileExpr() {
-			return getRuleContext(WhileExprContext.class,0);
-		}
-		public TerminalNode SEMI() { return getToken(DrawScriptParser.SEMI, 0); }
 		public IfExprContext ifExpr() {
 			return getRuleContext(IfExprContext.class,0);
 		}
-		public AssignContext assign() {
-			return getRuleContext(AssignContext.class,0);
+		public WhileExprContext whileExpr() {
+			return getRuleContext(WhileExprContext.class,0);
 		}
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
@@ -168,6 +218,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitStatement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitStatement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -175,53 +230,57 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 2, RULE_statement);
 		try {
 			setState(72);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(52); ((StatementContext)_localctx).e = expr();
-				setState(53); match(SEMI);
+				setState(52);
+				((StatementContext)_localctx).e = expr();
+				setState(53);
+				match(SEMI);
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).e.result;
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(56); ((StatementContext)_localctx).a = assign();
-				setState(57); match(SEMI);
+				setState(56);
+				((StatementContext)_localctx).a = assign();
+				setState(57);
+				match(SEMI);
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).a.result;
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(60); ((StatementContext)_localctx).f = createFunc();
+				setState(60);
+				((StatementContext)_localctx).f = createFunc();
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).f.result;
 				}
 				break;
-
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(63); ((StatementContext)_localctx).i = ifExpr();
+				setState(63);
+				((StatementContext)_localctx).i = ifExpr();
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).i.result;
 				}
 				break;
-
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(66); ((StatementContext)_localctx).w = whileExpr();
+				setState(66);
+				((StatementContext)_localctx).w = whileExpr();
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).w.result;
 				}
 				break;
-
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(69); ((StatementContext)_localctx).b = block();
+				setState(69);
+				((StatementContext)_localctx).b = block();
 				((StatementContext)_localctx).result =  ((StatementContext)_localctx).b.result;
 				}
 				break;
@@ -243,16 +302,16 @@ public class DrawScriptParser extends Parser {
 		public Token IDENT;
 		public ArgListContext a;
 		public BlockContext block;
-		public ArgListContext argList() {
-			return getRuleContext(ArgListContext.class,0);
-		}
 		public TerminalNode KEYCREATEF() { return getToken(DrawScriptParser.KEYCREATEF, 0); }
+		public TerminalNode IDENT() { return getToken(DrawScriptParser.IDENT, 0); }
 		public TerminalNode LPAR() { return getToken(DrawScriptParser.LPAR, 0); }
 		public TerminalNode RPAR() { return getToken(DrawScriptParser.RPAR, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public TerminalNode IDENT() { return getToken(DrawScriptParser.IDENT, 0); }
+		public ArgListContext argList() {
+			return getRuleContext(ArgListContext.class,0);
+		}
 		public CreateFuncContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -265,6 +324,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitCreateFunc(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitCreateFunc(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final CreateFuncContext createFunc() throws RecognitionException {
@@ -273,12 +337,18 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74); match(KEYCREATEF);
-			setState(75); ((CreateFuncContext)_localctx).IDENT = match(IDENT);
-			setState(76); match(LPAR);
-			setState(77); ((CreateFuncContext)_localctx).a = argList();
-			setState(78); match(RPAR);
-			setState(79); ((CreateFuncContext)_localctx).block = block();
+			setState(74);
+			match(KEYCREATEF);
+			setState(75);
+			((CreateFuncContext)_localctx).IDENT = match(IDENT);
+			setState(76);
+			match(LPAR);
+			setState(77);
+			((CreateFuncContext)_localctx).a = argList();
+			setState(78);
+			match(RPAR);
+			setState(79);
+			((CreateFuncContext)_localctx).block = block();
 			((CreateFuncContext)_localctx).result =  mkFunction((((CreateFuncContext)_localctx).IDENT!=null?((CreateFuncContext)_localctx).IDENT.getText():null), ((CreateFuncContext)_localctx).block.result, ((CreateFuncContext)_localctx).a.args);
 			}
 		}
@@ -298,18 +368,18 @@ public class DrawScriptParser extends Parser {
 		public BexprContext c;
 		public StatementContext t;
 		public StatementContext e;
-		public TerminalNode ELSE() { return getToken(DrawScriptParser.ELSE, 0); }
 		public TerminalNode IF() { return getToken(DrawScriptParser.IF, 0); }
 		public TerminalNode THEN() { return getToken(DrawScriptParser.THEN, 0); }
 		public BexprContext bexpr() {
 			return getRuleContext(BexprContext.class,0);
 		}
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
+		}
+		public TerminalNode ELSE() { return getToken(DrawScriptParser.ELSE, 0); }
 		public IfExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -322,6 +392,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitIfExpr(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitIfExpr(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final IfExprContext ifExpr() throws RecognitionException {
@@ -329,27 +404,37 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 6, RULE_ifExpr);
 		try {
 			setState(96);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(82); match(IF);
-				setState(83); ((IfExprContext)_localctx).c = bexpr();
-				setState(84); match(THEN);
-				setState(85); ((IfExprContext)_localctx).t = statement();
+				setState(82);
+				match(IF);
+				setState(83);
+				((IfExprContext)_localctx).c = bexpr();
+				setState(84);
+				match(THEN);
+				setState(85);
+				((IfExprContext)_localctx).t = statement();
 				((IfExprContext)_localctx).result =  mkIf(((IfExprContext)_localctx).c.result, ((IfExprContext)_localctx).t.result);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(88); match(IF);
-				setState(89); ((IfExprContext)_localctx).c = bexpr();
-				setState(90); match(THEN);
-				setState(91); ((IfExprContext)_localctx).t = statement();
-				setState(92); match(ELSE);
-				setState(93); ((IfExprContext)_localctx).e = statement();
+				setState(88);
+				match(IF);
+				setState(89);
+				((IfExprContext)_localctx).c = bexpr();
+				setState(90);
+				match(THEN);
+				setState(91);
+				((IfExprContext)_localctx).t = statement();
+				setState(92);
+				match(ELSE);
+				setState(93);
+				((IfExprContext)_localctx).e = statement();
 				((IfExprContext)_localctx).result =  mkIf(((IfExprContext)_localctx).c.result, ((IfExprContext)_localctx).t.result, ((IfExprContext)_localctx).e.result);
 				}
 				break;
@@ -370,6 +455,7 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public BexprContext c;
 		public StatementContext d;
+		public TerminalNode WHILE() { return getToken(DrawScriptParser.WHILE, 0); }
 		public TerminalNode DO() { return getToken(DrawScriptParser.DO, 0); }
 		public BexprContext bexpr() {
 			return getRuleContext(BexprContext.class,0);
@@ -377,7 +463,6 @@ public class DrawScriptParser extends Parser {
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
-		public TerminalNode WHILE() { return getToken(DrawScriptParser.WHILE, 0); }
 		public WhileExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -390,6 +475,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitWhileExpr(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitWhileExpr(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final WhileExprContext whileExpr() throws RecognitionException {
@@ -398,10 +488,14 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(98); match(WHILE);
-			setState(99); ((WhileExprContext)_localctx).c = bexpr();
-			setState(100); match(DO);
-			setState(101); ((WhileExprContext)_localctx).d = statement();
+			setState(98);
+			match(WHILE);
+			setState(99);
+			((WhileExprContext)_localctx).c = bexpr();
+			setState(100);
+			match(DO);
+			setState(101);
+			((WhileExprContext)_localctx).d = statement();
 			((WhileExprContext)_localctx).result =  mkWhile(((WhileExprContext)_localctx).c.result, ((WhileExprContext)_localctx).d.result);
 			}
 		}
@@ -436,6 +530,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitBlock(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitBlock(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
@@ -444,9 +543,12 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104); match(LBRC);
-			setState(105); ((BlockContext)_localctx).st = sttmtSeq();
-			setState(106); match(RBRC);
+			setState(104);
+			match(LBRC);
+			setState(105);
+			((BlockContext)_localctx).st = sttmtSeq();
+			setState(106);
+			match(RBRC);
 			((BlockContext)_localctx).result =  mkBlock(((BlockContext)_localctx).st.sttmts);
 			}
 		}
@@ -464,11 +566,11 @@ public class DrawScriptParser extends Parser {
 	public static class SttmtSeqContext extends ParserRuleContext {
 		public List<Expr> sttmts;
 		public StatementContext s1;
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
 		}
 		public SttmtSeqContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -481,6 +583,11 @@ public class DrawScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitSttmtSeq(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitSttmtSeq(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -500,7 +607,8 @@ public class DrawScriptParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NUMERO) | (1L << NOT) | (1L << IF) | (1L << WHILE) | (1L << RETURN) | (1L << DRAWID) | (1L << KEYCREATEF) | (1L << IDENT) | (1L << MINUS) | (1L << LPAR) | (1L << LBRC))) != 0)) {
 				{
 				{
-				setState(109); ((SttmtSeqContext)_localctx).s1 = statement();
+				setState(109);
+				((SttmtSeqContext)_localctx).s1 = statement();
 				_localctx.sttmts.add(((SttmtSeqContext)_localctx).s1.result);
 				}
 				}
@@ -525,10 +633,10 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public BexprContext e;
 		public BexprContext r;
-		public TerminalNode RETURN() { return getToken(DrawScriptParser.RETURN, 0); }
 		public BexprContext bexpr() {
 			return getRuleContext(BexprContext.class,0);
 		}
+		public TerminalNode RETURN() { return getToken(DrawScriptParser.RETURN, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -541,6 +649,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitExpr(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitExpr(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -548,6 +661,7 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 14, RULE_expr);
 		try {
 			setState(124);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NUMERO:
 			case NOT:
@@ -556,15 +670,18 @@ public class DrawScriptParser extends Parser {
 			case LPAR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(117); ((ExprContext)_localctx).e = bexpr();
+				setState(117);
+				((ExprContext)_localctx).e = bexpr();
 				((ExprContext)_localctx).result =  ((ExprContext)_localctx).e.result;
 				}
 				break;
 			case RETURN:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(120); match(RETURN);
-				setState(121); ((ExprContext)_localctx).r = bexpr();
+				setState(120);
+				match(RETURN);
+				setState(121);
+				((ExprContext)_localctx).r = bexpr();
 				((ExprContext)_localctx).result =  mkReturn(((ExprContext)_localctx).r.result);
 				}
 				break;
@@ -588,15 +705,15 @@ public class DrawScriptParser extends Parser {
 		public Token IDENT;
 		public ExprContext e;
 		public DesignContext d1;
-		public DesignContext design() {
-			return getRuleContext(DesignContext.class,0);
-		}
-		public TerminalNode DRAWID() { return getToken(DrawScriptParser.DRAWID, 0); }
+		public TerminalNode IDENT() { return getToken(DrawScriptParser.IDENT, 0); }
+		public TerminalNode GETS() { return getToken(DrawScriptParser.GETS, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public TerminalNode GETS() { return getToken(DrawScriptParser.GETS, 0); }
-		public TerminalNode IDENT() { return getToken(DrawScriptParser.IDENT, 0); }
+		public TerminalNode DRAWID() { return getToken(DrawScriptParser.DRAWID, 0); }
+		public DesignContext design() {
+			return getRuleContext(DesignContext.class,0);
+		}
 		public AssignContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -609,6 +726,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitAssign(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitAssign(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AssignContext assign() throws RecognitionException {
@@ -616,23 +738,31 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 16, RULE_assign);
 		try {
 			setState(137);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(126); ((AssignContext)_localctx).IDENT = match(IDENT);
-				setState(127); match(GETS);
-				setState(128); ((AssignContext)_localctx).e = expr();
+				setState(126);
+				((AssignContext)_localctx).IDENT = match(IDENT);
+				setState(127);
+				match(GETS);
+				setState(128);
+				((AssignContext)_localctx).e = expr();
 				((AssignContext)_localctx).result =  mkAssign((((AssignContext)_localctx).IDENT!=null?((AssignContext)_localctx).IDENT.getText():null), ((AssignContext)_localctx).e.result);
 				}
 				break;
 			case DRAWID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(131); match(DRAWID);
-				setState(132); ((AssignContext)_localctx).IDENT = match(IDENT);
-				setState(133); match(GETS);
-				setState(134); ((AssignContext)_localctx).d1 = design();
+				setState(131);
+				match(DRAWID);
+				setState(132);
+				((AssignContext)_localctx).IDENT = match(IDENT);
+				setState(133);
+				match(GETS);
+				setState(134);
+				((AssignContext)_localctx).d1 = design();
 				((AssignContext)_localctx).result =  mkDrawAssing((((AssignContext)_localctx).IDENT!=null?((AssignContext)_localctx).IDENT.getText():null),((AssignContext)_localctx).d1.result);
 				}
 				break;
@@ -658,10 +788,10 @@ public class DrawScriptParser extends Parser {
 		public List<DisjContext> disj() {
 			return getRuleContexts(DisjContext.class);
 		}
-		public List<TerminalNode> OR() { return getTokens(DrawScriptParser.OR); }
 		public DisjContext disj(int i) {
 			return getRuleContext(DisjContext.class,i);
 		}
+		public List<TerminalNode> OR() { return getTokens(DrawScriptParser.OR); }
 		public TerminalNode OR(int i) {
 			return getToken(DrawScriptParser.OR, i);
 		}
@@ -677,6 +807,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitBexpr(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitBexpr(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BexprContext bexpr() throws RecognitionException {
@@ -686,7 +821,8 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139); ((BexprContext)_localctx).d1 = disj();
+			setState(139);
+			((BexprContext)_localctx).d1 = disj();
 			((BexprContext)_localctx).result =  ((BexprContext)_localctx).d1.result;
 			setState(147);
 			_errHandler.sync(this);
@@ -694,8 +830,10 @@ public class DrawScriptParser extends Parser {
 			while (_la==OR) {
 				{
 				{
-				setState(141); match(OR);
-				setState(142); ((BexprContext)_localctx).d2 = disj();
+				setState(141);
+				match(OR);
+				setState(142);
+				((BexprContext)_localctx).d2 = disj();
 				((BexprContext)_localctx).result =  mkComposite(Op.OR, _localctx.result, ((BexprContext)_localctx).d2.result);
 				}
 				}
@@ -720,16 +858,16 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public ConjContext c1;
 		public ConjContext c2;
-		public TerminalNode AND(int i) {
-			return getToken(DrawScriptParser.AND, i);
+		public List<ConjContext> conj() {
+			return getRuleContexts(ConjContext.class);
 		}
 		public ConjContext conj(int i) {
 			return getRuleContext(ConjContext.class,i);
 		}
-		public List<ConjContext> conj() {
-			return getRuleContexts(ConjContext.class);
-		}
 		public List<TerminalNode> AND() { return getTokens(DrawScriptParser.AND); }
+		public TerminalNode AND(int i) {
+			return getToken(DrawScriptParser.AND, i);
+		}
 		public DisjContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -742,6 +880,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitDisj(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitDisj(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DisjContext disj() throws RecognitionException {
@@ -751,7 +894,8 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(150); ((DisjContext)_localctx).c1 = conj();
+			setState(150);
+			((DisjContext)_localctx).c1 = conj();
 			((DisjContext)_localctx).result =  ((DisjContext)_localctx).c1.result;
 			setState(158);
 			_errHandler.sync(this);
@@ -759,8 +903,10 @@ public class DrawScriptParser extends Parser {
 			while (_la==AND) {
 				{
 				{
-				setState(152); match(AND);
-				setState(153); ((DisjContext)_localctx).c2 = conj();
+				setState(152);
+				match(AND);
+				setState(153);
+				((DisjContext)_localctx).c2 = conj();
 				((DisjContext)_localctx).result =  mkComposite(Op.AND, _localctx.result, ((DisjContext)_localctx).c2.result);
 				}
 				}
@@ -807,6 +953,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitConj(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitConj(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ConjContext conj() throws RecognitionException {
@@ -816,14 +967,18 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(161); ((ConjContext)_localctx).a1 = aexpr();
+			setState(161);
+			((ConjContext)_localctx).a1 = aexpr();
 			((ConjContext)_localctx).result =  ((ConjContext)_localctx).a1.result;
 			setState(167);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQU) | (1L << NEQ) | (1L << LT) | (1L << LEQ) | (1L << GT) | (1L << GEQ))) != 0)) {
 				{
-				setState(163); ((ConjContext)_localctx).o = relOp();
-				setState(164); ((ConjContext)_localctx).a2 = aexpr();
+				setState(163);
+				((ConjContext)_localctx).o = relOp();
+				setState(164);
+				((ConjContext)_localctx).a2 = aexpr();
 				((ConjContext)_localctx).result =  mkComposite(((ConjContext)_localctx).o.result, _localctx.result, ((ConjContext)_localctx).a2.result);
 				}
 			}
@@ -843,12 +998,12 @@ public class DrawScriptParser extends Parser {
 
 	public static class RelOpContext extends ParserRuleContext {
 		public Operator result;
-		public TerminalNode GEQ() { return getToken(DrawScriptParser.GEQ, 0); }
-		public TerminalNode NEQ() { return getToken(DrawScriptParser.NEQ, 0); }
-		public TerminalNode LEQ() { return getToken(DrawScriptParser.LEQ, 0); }
-		public TerminalNode LT() { return getToken(DrawScriptParser.LT, 0); }
-		public TerminalNode GT() { return getToken(DrawScriptParser.GT, 0); }
 		public TerminalNode EQU() { return getToken(DrawScriptParser.EQU, 0); }
+		public TerminalNode NEQ() { return getToken(DrawScriptParser.NEQ, 0); }
+		public TerminalNode LT() { return getToken(DrawScriptParser.LT, 0); }
+		public TerminalNode LEQ() { return getToken(DrawScriptParser.LEQ, 0); }
+		public TerminalNode GT() { return getToken(DrawScriptParser.GT, 0); }
+		public TerminalNode GEQ() { return getToken(DrawScriptParser.GEQ, 0); }
 		public RelOpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -861,6 +1016,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitRelOp(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitRelOp(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final RelOpContext relOp() throws RecognitionException {
@@ -868,46 +1028,53 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 24, RULE_relOp);
 		try {
 			setState(181);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case EQU:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(169); match(EQU);
+				setState(169);
+				match(EQU);
 				((RelOpContext)_localctx).result =  Op.EQU;
 				}
 				break;
 			case NEQ:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(171); match(NEQ);
+				setState(171);
+				match(NEQ);
 				((RelOpContext)_localctx).result =  Op.NEQ;
 				}
 				break;
 			case LT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(173); match(LT);
+				setState(173);
+				match(LT);
 				((RelOpContext)_localctx).result =  Op.LT;
 				}
 				break;
 			case LEQ:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(175); match(LEQ);
+				setState(175);
+				match(LEQ);
 				((RelOpContext)_localctx).result =  Op.LEQ;
 				}
 				break;
 			case GT:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(177); match(GT);
+				setState(177);
+				match(GT);
 				((RelOpContext)_localctx).result =  Op.GT;
 				}
 				break;
 			case GEQ:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(179); match(GEQ);
+				setState(179);
+				match(GEQ);
 				((RelOpContext)_localctx).result =  Op.GEQ;
 				}
 				break;
@@ -930,19 +1097,19 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public ParcelaContext p1;
 		public ParcelaContext p2;
-		public ParcelaContext parcela(int i) {
-			return getRuleContext(ParcelaContext.class,i);
-		}
-		public TerminalNode MINUS(int i) {
-			return getToken(DrawScriptParser.MINUS, i);
-		}
 		public List<ParcelaContext> parcela() {
 			return getRuleContexts(ParcelaContext.class);
 		}
+		public ParcelaContext parcela(int i) {
+			return getRuleContext(ParcelaContext.class,i);
+		}
 		public List<TerminalNode> PLUS() { return getTokens(DrawScriptParser.PLUS); }
-		public List<TerminalNode> MINUS() { return getTokens(DrawScriptParser.MINUS); }
 		public TerminalNode PLUS(int i) {
 			return getToken(DrawScriptParser.PLUS, i);
+		}
+		public List<TerminalNode> MINUS() { return getTokens(DrawScriptParser.MINUS); }
+		public TerminalNode MINUS(int i) {
+			return getToken(DrawScriptParser.MINUS, i);
 		}
 		public AexprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -956,6 +1123,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitAexpr(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitAexpr(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AexprContext aexpr() throws RecognitionException {
@@ -965,27 +1137,33 @@ public class DrawScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(183); ((AexprContext)_localctx).p1 = parcela();
+			setState(183);
+			((AexprContext)_localctx).p1 = parcela();
 			((AexprContext)_localctx).result =  ((AexprContext)_localctx).p1.result;
 			setState(195);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
-			while ( _alt!=2 && _alt!=-1 ) {
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					setState(193);
+					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case PLUS:
 						{
-						setState(185); match(PLUS);
-						setState(186); ((AexprContext)_localctx).p2 = parcela();
+						setState(185);
+						match(PLUS);
+						setState(186);
+						((AexprContext)_localctx).p2 = parcela();
 						((AexprContext)_localctx).result =  mkComposite(Op.PLUS, _localctx.result, ((AexprContext)_localctx).p2.result);
 						}
 						break;
 					case MINUS:
 						{
-						setState(189); match(MINUS);
-						setState(190); ((AexprContext)_localctx).p2 = parcela();
+						setState(189);
+						match(MINUS);
+						setState(190);
+						((AexprContext)_localctx).p2 = parcela();
 						((AexprContext)_localctx).result =  mkComposite(Op.MINUS, _localctx.result, ((AexprContext)_localctx).p2.result);
 						}
 						break;
@@ -1015,23 +1193,23 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public FatorContext f1;
 		public FatorContext f2;
-		public TerminalNode DIVIDE(int i) {
-			return getToken(DrawScriptParser.DIVIDE, i);
-		}
-		public TerminalNode TIMES(int i) {
-			return getToken(DrawScriptParser.TIMES, i);
-		}
-		public List<TerminalNode> TIMES() { return getTokens(DrawScriptParser.TIMES); }
 		public List<FatorContext> fator() {
 			return getRuleContexts(FatorContext.class);
 		}
+		public FatorContext fator(int i) {
+			return getRuleContext(FatorContext.class,i);
+		}
+		public List<TerminalNode> TIMES() { return getTokens(DrawScriptParser.TIMES); }
+		public TerminalNode TIMES(int i) {
+			return getToken(DrawScriptParser.TIMES, i);
+		}
 		public List<TerminalNode> DIVIDE() { return getTokens(DrawScriptParser.DIVIDE); }
+		public TerminalNode DIVIDE(int i) {
+			return getToken(DrawScriptParser.DIVIDE, i);
+		}
 		public List<TerminalNode> MOD() { return getTokens(DrawScriptParser.MOD); }
 		public TerminalNode MOD(int i) {
 			return getToken(DrawScriptParser.MOD, i);
-		}
-		public FatorContext fator(int i) {
-			return getRuleContext(FatorContext.class,i);
 		}
 		public ParcelaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1045,6 +1223,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitParcela(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitParcela(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParcelaContext parcela() throws RecognitionException {
@@ -1054,7 +1237,8 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198); ((ParcelaContext)_localctx).f1 = fator();
+			setState(198);
+			((ParcelaContext)_localctx).f1 = fator();
 			((ParcelaContext)_localctx).result =  ((ParcelaContext)_localctx).f1.result;
 			setState(214);
 			_errHandler.sync(this);
@@ -1062,25 +1246,32 @@ public class DrawScriptParser extends Parser {
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << TIMES) | (1L << DIVIDE) | (1L << MOD))) != 0)) {
 				{
 				setState(212);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case TIMES:
 					{
-					setState(200); match(TIMES);
-					setState(201); ((ParcelaContext)_localctx).f2 = fator();
+					setState(200);
+					match(TIMES);
+					setState(201);
+					((ParcelaContext)_localctx).f2 = fator();
 					((ParcelaContext)_localctx).result =  mkComposite(Op.TIMES, _localctx.result, ((ParcelaContext)_localctx).f2.result);
 					}
 					break;
 				case DIVIDE:
 					{
-					setState(204); match(DIVIDE);
-					setState(205); ((ParcelaContext)_localctx).f2 = fator();
+					setState(204);
+					match(DIVIDE);
+					setState(205);
+					((ParcelaContext)_localctx).f2 = fator();
 					((ParcelaContext)_localctx).result =  mkComposite(Op.DIVIDE, _localctx.result, ((ParcelaContext)_localctx).f2.result);
 					}
 					break;
 				case MOD:
 					{
-					setState(208); match(MOD);
-					setState(209); ((ParcelaContext)_localctx).f2 = fator();
+					setState(208);
+					match(MOD);
+					setState(209);
+					((ParcelaContext)_localctx).f2 = fator();
 					((ParcelaContext)_localctx).result =  mkComposite(Op.MOD, _localctx.result, ((ParcelaContext)_localctx).f2.result);
 					}
 					break;
@@ -1109,13 +1300,13 @@ public class DrawScriptParser extends Parser {
 		public Expr result;
 		public TermoContext t1;
 		public TermoContext t2;
-		public TerminalNode EXP() { return getToken(DrawScriptParser.EXP, 0); }
 		public List<TermoContext> termo() {
 			return getRuleContexts(TermoContext.class);
 		}
 		public TermoContext termo(int i) {
 			return getRuleContext(TermoContext.class,i);
 		}
+		public TerminalNode EXP() { return getToken(DrawScriptParser.EXP, 0); }
 		public FatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1128,6 +1319,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitFator(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitFator(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FatorContext fator() throws RecognitionException {
@@ -1137,14 +1333,18 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(217); ((FatorContext)_localctx).t1 = termo();
+			setState(217);
+			((FatorContext)_localctx).t1 = termo();
 			((FatorContext)_localctx).result =  ((FatorContext)_localctx).t1.result;
 			setState(223);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EXP) {
 				{
-				setState(219); match(EXP);
-				setState(220); ((FatorContext)_localctx).t2 = termo();
+				setState(219);
+				match(EXP);
+				setState(220);
+				((FatorContext)_localctx).t2 = termo();
 				((FatorContext)_localctx).result =  mkComposite(Op.EXP, _localctx.result, ((FatorContext)_localctx).t2.result);
 				}
 			}
@@ -1169,21 +1369,21 @@ public class DrawScriptParser extends Parser {
 		public Token NUMERO;
 		public Token IDENT;
 		public ArgListContext a;
-		public TerminalNode NOT() { return getToken(DrawScriptParser.NOT, 0); }
-		public ArgListContext argList() {
-			return getRuleContext(ArgListContext.class,0);
+		public TerminalNode MINUS() { return getToken(DrawScriptParser.MINUS, 0); }
+		public TermoContext termo() {
+			return getRuleContext(TermoContext.class,0);
 		}
+		public TerminalNode NOT() { return getToken(DrawScriptParser.NOT, 0); }
+		public TerminalNode LPAR() { return getToken(DrawScriptParser.LPAR, 0); }
+		public TerminalNode RPAR() { return getToken(DrawScriptParser.RPAR, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public TerminalNode NUMERO() { return getToken(DrawScriptParser.NUMERO, 0); }
-		public TermoContext termo() {
-			return getRuleContext(TermoContext.class,0);
-		}
-		public TerminalNode MINUS() { return getToken(DrawScriptParser.MINUS, 0); }
-		public TerminalNode LPAR() { return getToken(DrawScriptParser.LPAR, 0); }
-		public TerminalNode RPAR() { return getToken(DrawScriptParser.RPAR, 0); }
 		public TerminalNode IDENT() { return getToken(DrawScriptParser.IDENT, 0); }
+		public ArgListContext argList() {
+			return getRuleContext(ArgListContext.class,0);
+		}
 		public TermoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1196,6 +1396,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitTermo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitTermo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TermoContext termo() throws RecognitionException {
@@ -1203,58 +1408,67 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 32, RULE_termo);
 		try {
 			setState(248);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(225); match(MINUS);
-				setState(226); ((TermoContext)_localctx).t1 = termo();
+				setState(225);
+				match(MINUS);
+				setState(226);
+				((TermoContext)_localctx).t1 = termo();
 				((TermoContext)_localctx).result =  mkComposite(Op.UMINUS, ((TermoContext)_localctx).t1.result);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(229); match(NOT);
-				setState(230); ((TermoContext)_localctx).t1 = termo();
+				setState(229);
+				match(NOT);
+				setState(230);
+				((TermoContext)_localctx).t1 = termo();
 				((TermoContext)_localctx).result =  mkComposite(Op.NOT, ((TermoContext)_localctx).t1.result);
 				}
 				break;
-
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(233); match(LPAR);
-				setState(234); ((TermoContext)_localctx).e1 = expr();
-				setState(235); match(RPAR);
+				setState(233);
+				match(LPAR);
+				setState(234);
+				((TermoContext)_localctx).e1 = expr();
+				setState(235);
+				match(RPAR);
 				((TermoContext)_localctx).result =  ((TermoContext)_localctx).e1.result;
 				}
 				break;
-
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(238); ((TermoContext)_localctx).NUMERO = match(NUMERO);
+				setState(238);
+				((TermoContext)_localctx).NUMERO = match(NUMERO);
 				((TermoContext)_localctx).result =  mkNumeric(Double.parseDouble((((TermoContext)_localctx).NUMERO!=null?((TermoContext)_localctx).NUMERO.getText():null)));
 				}
 				break;
-
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(240); ((TermoContext)_localctx).IDENT = match(IDENT);
+				setState(240);
+				((TermoContext)_localctx).IDENT = match(IDENT);
 				((TermoContext)_localctx).result =  mkVar((((TermoContext)_localctx).IDENT!=null?((TermoContext)_localctx).IDENT.getText():null));
 				}
 				break;
-
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(242); ((TermoContext)_localctx).IDENT = match(IDENT);
-				setState(243); match(LPAR);
-				setState(244); ((TermoContext)_localctx).a = argList();
-				setState(245); match(RPAR);
+				setState(242);
+				((TermoContext)_localctx).IDENT = match(IDENT);
+				setState(243);
+				match(LPAR);
+				setState(244);
+				((TermoContext)_localctx).a = argList();
+				setState(245);
+				match(RPAR);
 				((TermoContext)_localctx).result =  mkFunCall((((TermoContext)_localctx).IDENT!=null?((TermoContext)_localctx).IDENT.getText():null), ((TermoContext)_localctx).a.args);
 				}
 				break;
@@ -1297,6 +1511,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitArgList(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitArgList(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ArgListContext argList() throws RecognitionException {
@@ -1308,6 +1527,7 @@ public class DrawScriptParser extends Parser {
 		int _la;
 		try {
 			setState(262);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case RPAR:
 				enterOuterAlt(_localctx, 1);
@@ -1322,7 +1542,8 @@ public class DrawScriptParser extends Parser {
 			case LPAR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(251); ((ArgListContext)_localctx).e1 = expr();
+				setState(251);
+				((ArgListContext)_localctx).e1 = expr();
 				_localctx.args.add(((ArgListContext)_localctx).e1.result);
 				setState(259);
 				_errHandler.sync(this);
@@ -1330,8 +1551,10 @@ public class DrawScriptParser extends Parser {
 				while (_la==COMMA) {
 					{
 					{
-					setState(253); match(COMMA);
-					setState(254); ((ArgListContext)_localctx).e2 = expr();
+					setState(253);
+					match(COMMA);
+					setState(254);
+					((ArgListContext)_localctx).e2 = expr();
 					_localctx.args.add(((ArgListContext)_localctx).e2.result);
 					}
 					}
@@ -1378,6 +1601,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitDesign(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitDesign(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DesignContext design() throws RecognitionException {
@@ -1386,8 +1614,10 @@ public class DrawScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(264); ((DesignContext)_localctx).ds1 = shape();
-			setState(265); ((DesignContext)_localctx).dp1 = property();
+			setState(264);
+			((DesignContext)_localctx).ds1 = shape();
+			setState(265);
+			((DesignContext)_localctx).dp1 = property();
 			((DesignContext)_localctx).result =  mkDesign(((DesignContext)_localctx).ds1.result,((DesignContext)_localctx).dp1.result);
 			}
 		}
@@ -1412,14 +1642,14 @@ public class DrawScriptParser extends Parser {
 		public Token CIRCLE;
 		public Token TRIANGLE;
 		public Token TRAPEZIO;
-		public TerminalNode PENTAGON() { return getToken(DrawScriptParser.PENTAGON, 0); }
+		public TerminalNode SQUARE() { return getToken(DrawScriptParser.SQUARE, 0); }
 		public TerminalNode RECTANGLE() { return getToken(DrawScriptParser.RECTANGLE, 0); }
+		public TerminalNode OVAL() { return getToken(DrawScriptParser.OVAL, 0); }
+		public TerminalNode PENTAGON() { return getToken(DrawScriptParser.PENTAGON, 0); }
 		public TerminalNode OCTAGON() { return getToken(DrawScriptParser.OCTAGON, 0); }
+		public TerminalNode CIRCLE() { return getToken(DrawScriptParser.CIRCLE, 0); }
 		public TerminalNode TRIANGLE() { return getToken(DrawScriptParser.TRIANGLE, 0); }
 		public TerminalNode TRAPEZIO() { return getToken(DrawScriptParser.TRAPEZIO, 0); }
-		public TerminalNode SQUARE() { return getToken(DrawScriptParser.SQUARE, 0); }
-		public TerminalNode OVAL() { return getToken(DrawScriptParser.OVAL, 0); }
-		public TerminalNode CIRCLE() { return getToken(DrawScriptParser.CIRCLE, 0); }
 		public ShapeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1432,6 +1662,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitShape(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitShape(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ShapeContext shape() throws RecognitionException {
@@ -1439,60 +1674,69 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 38, RULE_shape);
 		try {
 			setState(284);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SQUARE:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(268); ((ShapeContext)_localctx).SQUARE = match(SQUARE);
+				setState(268);
+				((ShapeContext)_localctx).SQUARE = match(SQUARE);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).SQUARE!=null?((ShapeContext)_localctx).SQUARE.getText():null));
 				}
 				break;
 			case RECTANGLE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(270); ((ShapeContext)_localctx).RECTANGLE = match(RECTANGLE);
+				setState(270);
+				((ShapeContext)_localctx).RECTANGLE = match(RECTANGLE);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).RECTANGLE!=null?((ShapeContext)_localctx).RECTANGLE.getText():null));
 				}
 				break;
 			case OVAL:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(272); ((ShapeContext)_localctx).OVAL = match(OVAL);
+				setState(272);
+				((ShapeContext)_localctx).OVAL = match(OVAL);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).OVAL!=null?((ShapeContext)_localctx).OVAL.getText():null));
 				}
 				break;
 			case PENTAGON:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(274); ((ShapeContext)_localctx).PENTAGON = match(PENTAGON);
+				setState(274);
+				((ShapeContext)_localctx).PENTAGON = match(PENTAGON);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).PENTAGON!=null?((ShapeContext)_localctx).PENTAGON.getText():null));
 				}
 				break;
 			case OCTAGON:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(276); ((ShapeContext)_localctx).OCTAGON = match(OCTAGON);
+				setState(276);
+				((ShapeContext)_localctx).OCTAGON = match(OCTAGON);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).OCTAGON!=null?((ShapeContext)_localctx).OCTAGON.getText():null));
 				}
 				break;
 			case CIRCLE:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(278); ((ShapeContext)_localctx).CIRCLE = match(CIRCLE);
+				setState(278);
+				((ShapeContext)_localctx).CIRCLE = match(CIRCLE);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).CIRCLE!=null?((ShapeContext)_localctx).CIRCLE.getText():null));
 				}
 				break;
 			case TRIANGLE:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(280); ((ShapeContext)_localctx).TRIANGLE = match(TRIANGLE);
+				setState(280);
+				((ShapeContext)_localctx).TRIANGLE = match(TRIANGLE);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).TRIANGLE!=null?((ShapeContext)_localctx).TRIANGLE.getText():null));
 				}
 				break;
 			case TRAPEZIO:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(282); ((ShapeContext)_localctx).TRAPEZIO = match(TRAPEZIO);
+				setState(282);
+				((ShapeContext)_localctx).TRAPEZIO = match(TRAPEZIO);
 				((ShapeContext)_localctx).result =  mkShape((((ShapeContext)_localctx).TRAPEZIO!=null?((ShapeContext)_localctx).TRAPEZIO.getText():null));
 				}
 				break;
@@ -1519,11 +1763,11 @@ public class DrawScriptParser extends Parser {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
-		public ColorContext color() {
-			return getRuleContext(ColorContext.class,0);
-		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
+		}
+		public ColorContext color() {
+			return getRuleContext(ColorContext.class,0);
 		}
 		public PropertyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1537,6 +1781,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitProperty(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitProperty(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final PropertyContext property() throws RecognitionException {
@@ -1544,22 +1793,27 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 40, RULE_property);
 		try {
 			setState(295);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(286); ((PropertyContext)_localctx).height = expr();
-				setState(287); ((PropertyContext)_localctx).pColor = color();
+				setState(286);
+				((PropertyContext)_localctx).height = expr();
+				setState(287);
+				((PropertyContext)_localctx).pColor = color();
 				((PropertyContext)_localctx).result =  mkProperty(((PropertyContext)_localctx).height.result,((PropertyContext)_localctx).pColor.result);
 				}
 				break;
-
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(290); ((PropertyContext)_localctx).height = expr();
-				setState(291); ((PropertyContext)_localctx).width = expr();
-				setState(292); ((PropertyContext)_localctx).pColor = color();
+				setState(290);
+				((PropertyContext)_localctx).height = expr();
+				setState(291);
+				((PropertyContext)_localctx).width = expr();
+				setState(292);
+				((PropertyContext)_localctx).pColor = color();
 				((PropertyContext)_localctx).result =  mkProperty(((PropertyContext)_localctx).height.result,((PropertyContext)_localctx).width.result,((PropertyContext)_localctx).pColor.result);
 				}
 				break;
@@ -1587,15 +1841,15 @@ public class DrawScriptParser extends Parser {
 		public Token GREEN;
 		public Token WHITE;
 		public Token HEXCOLOR;
-		public TerminalNode BLACK() { return getToken(DrawScriptParser.BLACK, 0); }
-		public TerminalNode WHITE() { return getToken(DrawScriptParser.WHITE, 0); }
-		public TerminalNode HEXCOLOR() { return getToken(DrawScriptParser.HEXCOLOR, 0); }
 		public TerminalNode RED() { return getToken(DrawScriptParser.RED, 0); }
 		public TerminalNode BLUE() { return getToken(DrawScriptParser.BLUE, 0); }
+		public TerminalNode BLACK() { return getToken(DrawScriptParser.BLACK, 0); }
+		public TerminalNode PURPLE() { return getToken(DrawScriptParser.PURPLE, 0); }
 		public TerminalNode YELLOW() { return getToken(DrawScriptParser.YELLOW, 0); }
 		public TerminalNode PINK() { return getToken(DrawScriptParser.PINK, 0); }
 		public TerminalNode GREEN() { return getToken(DrawScriptParser.GREEN, 0); }
-		public TerminalNode PURPLE() { return getToken(DrawScriptParser.PURPLE, 0); }
+		public TerminalNode WHITE() { return getToken(DrawScriptParser.WHITE, 0); }
+		public TerminalNode HEXCOLOR() { return getToken(DrawScriptParser.HEXCOLOR, 0); }
 		public ColorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1608,6 +1862,11 @@ public class DrawScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof DrawScriptListener ) ((DrawScriptListener)listener).exitColor(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DrawScriptVisitor ) return ((DrawScriptVisitor<? extends T>)visitor).visitColor(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ColorContext color() throws RecognitionException {
@@ -1615,67 +1874,77 @@ public class DrawScriptParser extends Parser {
 		enterRule(_localctx, 42, RULE_color);
 		try {
 			setState(315);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case RED:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(297); ((ColorContext)_localctx).RED = match(RED);
+				setState(297);
+				((ColorContext)_localctx).RED = match(RED);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).RED!=null?((ColorContext)_localctx).RED.getText():null));
 				}
 				break;
 			case BLUE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(299); ((ColorContext)_localctx).BLUE = match(BLUE);
+				setState(299);
+				((ColorContext)_localctx).BLUE = match(BLUE);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).BLUE!=null?((ColorContext)_localctx).BLUE.getText():null));
 				}
 				break;
 			case BLACK:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(301); ((ColorContext)_localctx).BLACK = match(BLACK);
+				setState(301);
+				((ColorContext)_localctx).BLACK = match(BLACK);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).BLACK!=null?((ColorContext)_localctx).BLACK.getText():null));
 				}
 				break;
 			case PURPLE:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(303); ((ColorContext)_localctx).PURPLE = match(PURPLE);
+				setState(303);
+				((ColorContext)_localctx).PURPLE = match(PURPLE);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).PURPLE!=null?((ColorContext)_localctx).PURPLE.getText():null));
 				}
 				break;
 			case YELLOW:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(305); ((ColorContext)_localctx).YELLOW = match(YELLOW);
+				setState(305);
+				((ColorContext)_localctx).YELLOW = match(YELLOW);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).YELLOW!=null?((ColorContext)_localctx).YELLOW.getText():null));
 				}
 				break;
 			case PINK:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(307); ((ColorContext)_localctx).PINK = match(PINK);
+				setState(307);
+				((ColorContext)_localctx).PINK = match(PINK);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).PINK!=null?((ColorContext)_localctx).PINK.getText():null));
 				}
 				break;
 			case GREEN:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(309); ((ColorContext)_localctx).GREEN = match(GREEN);
+				setState(309);
+				((ColorContext)_localctx).GREEN = match(GREEN);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).GREEN!=null?((ColorContext)_localctx).GREEN.getText():null));
 				}
 				break;
 			case WHITE:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(311); ((ColorContext)_localctx).WHITE = match(WHITE);
+				setState(311);
+				((ColorContext)_localctx).WHITE = match(WHITE);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).WHITE!=null?((ColorContext)_localctx).WHITE.getText():null));
 				}
 				break;
 			case HEXCOLOR:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(313); ((ColorContext)_localctx).HEXCOLOR = match(HEXCOLOR);
+				setState(313);
+				((ColorContext)_localctx).HEXCOLOR = match(HEXCOLOR);
 				((ColorContext)_localctx).result =  mkColor((((ColorContext)_localctx).HEXCOLOR!=null?((ColorContext)_localctx).HEXCOLOR.getText():null));
 				}
 				break;
@@ -1695,7 +1964,7 @@ public class DrawScriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\66\u0140\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\66\u0140\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\2\7\2\62"+
@@ -1718,30 +1987,30 @@ public class DrawScriptParser extends Parser {
 		"\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25"+
 		"\3\25\5\25\u011f\n\25\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\5\26"+
 		"\u012a\n\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u013e\n\27\3\27\2\30\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \"$&(*,\2\2\u0158\2\63\3\2\2\2\4J\3\2\2\2\6L"+
-		"\3\2\2\2\bb\3\2\2\2\nd\3\2\2\2\fj\3\2\2\2\16t\3\2\2\2\20~\3\2\2\2\22\u008b"+
-		"\3\2\2\2\24\u008d\3\2\2\2\26\u0098\3\2\2\2\30\u00a3\3\2\2\2\32\u00b7\3"+
-		"\2\2\2\34\u00b9\3\2\2\2\36\u00c8\3\2\2\2 \u00db\3\2\2\2\"\u00fa\3\2\2"+
-		"\2$\u0108\3\2\2\2&\u010a\3\2\2\2(\u011e\3\2\2\2*\u0129\3\2\2\2,\u013d"+
-		"\3\2\2\2./\5\4\3\2/\60\b\2\1\2\60\62\3\2\2\2\61.\3\2\2\2\62\65\3\2\2\2"+
-		"\63\61\3\2\2\2\63\64\3\2\2\2\64\3\3\2\2\2\65\63\3\2\2\2\66\67\5\20\t\2"+
-		"\678\7.\2\289\b\3\1\29K\3\2\2\2:;\5\22\n\2;<\7.\2\2<=\b\3\1\2=K\3\2\2"+
-		"\2>?\5\6\4\2?@\b\3\1\2@K\3\2\2\2AB\5\b\5\2BC\b\3\1\2CK\3\2\2\2DE\5\n\6"+
-		"\2EF\b\3\1\2FK\3\2\2\2GH\5\f\7\2HI\b\3\1\2IK\3\2\2\2J\66\3\2\2\2J:\3\2"+
-		"\2\2J>\3\2\2\2JA\3\2\2\2JD\3\2\2\2JG\3\2\2\2K\5\3\2\2\2LM\7\36\2\2MN\7"+
-		"\37\2\2NO\7)\2\2OP\5$\23\2PQ\7*\2\2QR\5\f\7\2RS\b\4\1\2S\7\3\2\2\2TU\7"+
-		"\7\2\2UV\5\24\13\2VW\7\b\2\2WX\5\4\3\2XY\b\5\1\2Yc\3\2\2\2Z[\7\7\2\2["+
-		"\\\5\24\13\2\\]\7\b\2\2]^\5\4\3\2^_\7\t\2\2_`\5\4\3\2`a\b\5\1\2ac\3\2"+
-		"\2\2bT\3\2\2\2bZ\3\2\2\2c\t\3\2\2\2de\7\n\2\2ef\5\24\13\2fg\7\13\2\2g"+
-		"h\5\4\3\2hi\b\6\1\2i\13\3\2\2\2jk\7+\2\2kl\5\16\b\2lm\7,\2\2mn\b\7\1\2"+
-		"n\r\3\2\2\2op\5\4\3\2pq\b\b\1\2qs\3\2\2\2ro\3\2\2\2sv\3\2\2\2tr\3\2\2"+
-		"\2tu\3\2\2\2u\17\3\2\2\2vt\3\2\2\2wx\5\24\13\2xy\b\t\1\2y\177\3\2\2\2"+
-		"z{\7\f\2\2{|\5\24\13\2|}\b\t\1\2}\177\3\2\2\2~w\3\2\2\2~z\3\2\2\2\177"+
-		"\21\3\2\2\2\u0080\u0081\7\37\2\2\u0081\u0082\7\"\2\2\u0082\u0083\5\20"+
-		"\t\2\u0083\u0084\b\n\1\2\u0084\u008c\3\2\2\2\u0085\u0086\7\35\2\2\u0086"+
-		"\u0087\7\37\2\2\u0087\u0088\7\"\2\2\u0088\u0089\5&\24\2\u0089\u008a\b"+
-		"\n\1\2\u008a\u008c\3\2\2\2\u008b\u0080\3\2\2\2\u008b\u0085\3\2\2\2\u008c"+
+		"\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u013e\n\27\3\27\2\2\30\2\4\6\b\n\f"+
+		"\16\20\22\24\26\30\32\34\36 \"$&(*,\2\2\2\u0158\2\63\3\2\2\2\4J\3\2\2"+
+		"\2\6L\3\2\2\2\bb\3\2\2\2\nd\3\2\2\2\fj\3\2\2\2\16t\3\2\2\2\20~\3\2\2\2"+
+		"\22\u008b\3\2\2\2\24\u008d\3\2\2\2\26\u0098\3\2\2\2\30\u00a3\3\2\2\2\32"+
+		"\u00b7\3\2\2\2\34\u00b9\3\2\2\2\36\u00c8\3\2\2\2 \u00db\3\2\2\2\"\u00fa"+
+		"\3\2\2\2$\u0108\3\2\2\2&\u010a\3\2\2\2(\u011e\3\2\2\2*\u0129\3\2\2\2,"+
+		"\u013d\3\2\2\2./\5\4\3\2/\60\b\2\1\2\60\62\3\2\2\2\61.\3\2\2\2\62\65\3"+
+		"\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64\3\3\2\2\2\65\63\3\2\2\2\66\67\5"+
+		"\20\t\2\678\7.\2\289\b\3\1\29K\3\2\2\2:;\5\22\n\2;<\7.\2\2<=\b\3\1\2="+
+		"K\3\2\2\2>?\5\6\4\2?@\b\3\1\2@K\3\2\2\2AB\5\b\5\2BC\b\3\1\2CK\3\2\2\2"+
+		"DE\5\n\6\2EF\b\3\1\2FK\3\2\2\2GH\5\f\7\2HI\b\3\1\2IK\3\2\2\2J\66\3\2\2"+
+		"\2J:\3\2\2\2J>\3\2\2\2JA\3\2\2\2JD\3\2\2\2JG\3\2\2\2K\5\3\2\2\2LM\7\36"+
+		"\2\2MN\7\37\2\2NO\7)\2\2OP\5$\23\2PQ\7*\2\2QR\5\f\7\2RS\b\4\1\2S\7\3\2"+
+		"\2\2TU\7\7\2\2UV\5\24\13\2VW\7\b\2\2WX\5\4\3\2XY\b\5\1\2Yc\3\2\2\2Z[\7"+
+		"\7\2\2[\\\5\24\13\2\\]\7\b\2\2]^\5\4\3\2^_\7\t\2\2_`\5\4\3\2`a\b\5\1\2"+
+		"ac\3\2\2\2bT\3\2\2\2bZ\3\2\2\2c\t\3\2\2\2de\7\n\2\2ef\5\24\13\2fg\7\13"+
+		"\2\2gh\5\4\3\2hi\b\6\1\2i\13\3\2\2\2jk\7+\2\2kl\5\16\b\2lm\7,\2\2mn\b"+
+		"\7\1\2n\r\3\2\2\2op\5\4\3\2pq\b\b\1\2qs\3\2\2\2ro\3\2\2\2sv\3\2\2\2tr"+
+		"\3\2\2\2tu\3\2\2\2u\17\3\2\2\2vt\3\2\2\2wx\5\24\13\2xy\b\t\1\2y\177\3"+
+		"\2\2\2z{\7\f\2\2{|\5\24\13\2|}\b\t\1\2}\177\3\2\2\2~w\3\2\2\2~z\3\2\2"+
+		"\2\177\21\3\2\2\2\u0080\u0081\7\37\2\2\u0081\u0082\7\"\2\2\u0082\u0083"+
+		"\5\20\t\2\u0083\u0084\b\n\1\2\u0084\u008c\3\2\2\2\u0085\u0086\7\35\2\2"+
+		"\u0086\u0087\7\37\2\2\u0087\u0088\7\"\2\2\u0088\u0089\5&\24\2\u0089\u008a"+
+		"\b\n\1\2\u008a\u008c\3\2\2\2\u008b\u0080\3\2\2\2\u008b\u0085\3\2\2\2\u008c"+
 		"\23\3\2\2\2\u008d\u008e\5\26\f\2\u008e\u0095\b\13\1\2\u008f\u0090\7\4"+
 		"\2\2\u0090\u0091\5\26\f\2\u0091\u0092\b\13\1\2\u0092\u0094\3\2\2\2\u0093"+
 		"\u008f\3\2\2\2\u0094\u0097\3\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2"+
@@ -1806,7 +2075,7 @@ public class DrawScriptParser extends Parser {
 		"\2\2\u013e-\3\2\2\2\27\63Jbt~\u008b\u0095\u00a0\u00a9\u00b7\u00c3\u00c5"+
 		"\u00d6\u00d8\u00e1\u00fa\u0105\u0108\u011e\u0129\u013d";
 	public static final ATN _ATN =
-		ATNSimulator.deserialize(_serializedATN.toCharArray());
+		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
 		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
 		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {

@@ -228,8 +228,8 @@ COMMA   :   ',';
 SEMI    :   ';';
 
 //LOGICAL-MATHEMATICAL OPERATORS
-EQU :   '==';
-NEQ :   '!=';
+EQU :   '===';
+NEQ :   '!==';
 LT  :   '<' ;
 LEQ :   '<=';
 GT  :   '>' ;

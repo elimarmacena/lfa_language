@@ -1,9 +1,6 @@
 package posthtml;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +19,7 @@ public class DrawScript {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("eli.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("./PostHtml/input.txt"));
 
 		Map<String, Expr> ctx = new HashMap<>();
 		ctx.put("sin", Predef.SIN);
