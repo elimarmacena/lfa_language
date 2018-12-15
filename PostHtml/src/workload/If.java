@@ -33,9 +33,7 @@ public class If extends Expr {
         if (isTrue(c)) {
             result = thenExpr.eval(ctx, fw, identLevel, changeCtx);
             printElse(fw, identLevel);
-            elseExpr.eval(ctx, fw, identLevel, false);
         } else {
-            thenExpr.eval(ctx, fw, identLevel, false);
             printElse(fw, identLevel);
             result = elseExpr.eval(ctx, fw, identLevel, changeCtx);
         }

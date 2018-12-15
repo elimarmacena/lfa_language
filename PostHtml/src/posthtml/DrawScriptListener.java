@@ -1,4 +1,4 @@
-// Generated from C:\Users\joel-\Desktop\TRAB_LFA\PostHtml\Grammar\DrawScript.g4 by ANTLR 4.1
+// Generated from /home/x/Área de Trabalho/lfa_language/PostHtml/Grammar/DrawScript.g4 by ANTLR 4.7
 package posthtml;
 
 import workload.Expr;
@@ -9,7 +9,6 @@ import static workload.Sketch.*;
 import workload.Op;
 import java.util.LinkedList;
 
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -18,244 +17,223 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface DrawScriptListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#argList}.
-	 * @param ctx the parse tree
-	 */
-	void enterArgList(@NotNull DrawScriptParser.ArgListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#argList}.
-	 * @param ctx the parse tree
-	 */
-	void exitArgList(@NotNull DrawScriptParser.ArgListContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#bexpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterBexpr(@NotNull DrawScriptParser.BexprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#bexpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitBexpr(@NotNull DrawScriptParser.BexprContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#shape}.
-	 * @param ctx the parse tree
-	 */
-	void enterShape(@NotNull DrawScriptParser.ShapeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#shape}.
-	 * @param ctx the parse tree
-	 */
-	void exitShape(@NotNull DrawScriptParser.ShapeContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#color}.
-	 * @param ctx the parse tree
-	 */
-	void enterColor(@NotNull DrawScriptParser.ColorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#color}.
-	 * @param ctx the parse tree
-	 */
-	void exitColor(@NotNull DrawScriptParser.ColorContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#conj}.
-	 * @param ctx the parse tree
-	 */
-	void enterConj(@NotNull DrawScriptParser.ConjContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#conj}.
-	 * @param ctx the parse tree
-	 */
-	void exitConj(@NotNull DrawScriptParser.ConjContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#sttmtSeq}.
-	 * @param ctx the parse tree
-	 */
-	void enterSttmtSeq(@NotNull DrawScriptParser.SttmtSeqContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#sttmtSeq}.
-	 * @param ctx the parse tree
-	 */
-	void exitSttmtSeq(@NotNull DrawScriptParser.SttmtSeqContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#inicio}.
 	 * @param ctx the parse tree
 	 */
-	void enterInicio(@NotNull DrawScriptParser.InicioContext ctx);
+	void enterInicio(DrawScriptParser.InicioContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#inicio}.
 	 * @param ctx the parse tree
 	 */
-	void exitInicio(@NotNull DrawScriptParser.InicioContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#relOp}.
-	 * @param ctx the parse tree
-	 */
-	void enterRelOp(@NotNull DrawScriptParser.RelOpContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#relOp}.
-	 * @param ctx the parse tree
-	 */
-	void exitRelOp(@NotNull DrawScriptParser.RelOpContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#parcela}.
-	 * @param ctx the parse tree
-	 */
-	void enterParcela(@NotNull DrawScriptParser.ParcelaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#parcela}.
-	 * @param ctx the parse tree
-	 */
-	void exitParcela(@NotNull DrawScriptParser.ParcelaContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#aexpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAexpr(@NotNull DrawScriptParser.AexprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#aexpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAexpr(@NotNull DrawScriptParser.AexprContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#termo}.
-	 * @param ctx the parse tree
-	 */
-	void enterTermo(@NotNull DrawScriptParser.TermoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#termo}.
-	 * @param ctx the parse tree
-	 */
-	void exitTermo(@NotNull DrawScriptParser.TermoContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#disj}.
-	 * @param ctx the parse tree
-	 */
-	void enterDisj(@NotNull DrawScriptParser.DisjContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#disj}.
-	 * @param ctx the parse tree
-	 */
-	void exitDisj(@NotNull DrawScriptParser.DisjContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#whileExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterWhileExpr(@NotNull DrawScriptParser.WhileExprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#whileExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitWhileExpr(@NotNull DrawScriptParser.WhileExprContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#createFunc}.
-	 * @param ctx the parse tree
-	 */
-	void enterCreateFunc(@NotNull DrawScriptParser.CreateFuncContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#createFunc}.
-	 * @param ctx the parse tree
-	 */
-	void exitCreateFunc(@NotNull DrawScriptParser.CreateFuncContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#fator}.
-	 * @param ctx the parse tree
-	 */
-	void enterFator(@NotNull DrawScriptParser.FatorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#fator}.
-	 * @param ctx the parse tree
-	 */
-	void exitFator(@NotNull DrawScriptParser.FatorContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#design}.
-	 * @param ctx the parse tree
-	 */
-	void enterDesign(@NotNull DrawScriptParser.DesignContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#design}.
-	 * @param ctx the parse tree
-	 */
-	void exitDesign(@NotNull DrawScriptParser.DesignContext ctx);
-
+	void exitInicio(DrawScriptParser.InicioContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatement(@NotNull DrawScriptParser.StatementContext ctx);
+	void enterStatement(DrawScriptParser.StatementContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatement(@NotNull DrawScriptParser.StatementContext ctx);
-
+	void exitStatement(DrawScriptParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DrawScriptParser#property}.
+	 * Enter a parse tree produced by {@link DrawScriptParser#createFunc}.
 	 * @param ctx the parse tree
 	 */
-	void enterProperty(@NotNull DrawScriptParser.PropertyContext ctx);
+	void enterCreateFunc(DrawScriptParser.CreateFuncContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DrawScriptParser#property}.
+	 * Exit a parse tree produced by {@link DrawScriptParser#createFunc}.
 	 * @param ctx the parse tree
 	 */
-	void exitProperty(@NotNull DrawScriptParser.PropertyContext ctx);
-
+	void exitCreateFunc(DrawScriptParser.CreateFuncContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#ifExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfExpr(@NotNull DrawScriptParser.IfExprContext ctx);
+	void enterIfExpr(DrawScriptParser.IfExprContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#ifExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfExpr(@NotNull DrawScriptParser.IfExprContext ctx);
-
+	void exitIfExpr(DrawScriptParser.IfExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#whileExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileExpr(DrawScriptParser.WhileExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#whileExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileExpr(DrawScriptParser.WhileExprContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void enterBlock(@NotNull DrawScriptParser.BlockContext ctx);
+	void enterBlock(DrawScriptParser.BlockContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void exitBlock(@NotNull DrawScriptParser.BlockContext ctx);
-
+	void exitBlock(DrawScriptParser.BlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#sttmtSeq}.
+	 * @param ctx the parse tree
+	 */
+	void enterSttmtSeq(DrawScriptParser.SttmtSeqContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#sttmtSeq}.
+	 * @param ctx the parse tree
+	 */
+	void exitSttmtSeq(DrawScriptParser.SttmtSeqContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(@NotNull DrawScriptParser.ExprContext ctx);
+	void enterExpr(DrawScriptParser.ExprContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(@NotNull DrawScriptParser.ExprContext ctx);
-
+	void exitExpr(DrawScriptParser.ExprContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DrawScriptParser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssign(@NotNull DrawScriptParser.AssignContext ctx);
+	void enterAssign(DrawScriptParser.AssignContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link DrawScriptParser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssign(@NotNull DrawScriptParser.AssignContext ctx);
+	void exitAssign(DrawScriptParser.AssignContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#bexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBexpr(DrawScriptParser.BexprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#bexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBexpr(DrawScriptParser.BexprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#disj}.
+	 * @param ctx the parse tree
+	 */
+	void enterDisj(DrawScriptParser.DisjContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#disj}.
+	 * @param ctx the parse tree
+	 */
+	void exitDisj(DrawScriptParser.DisjContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#conj}.
+	 * @param ctx the parse tree
+	 */
+	void enterConj(DrawScriptParser.ConjContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#conj}.
+	 * @param ctx the parse tree
+	 */
+	void exitConj(DrawScriptParser.ConjContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#relOp}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelOp(DrawScriptParser.RelOpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#relOp}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelOp(DrawScriptParser.RelOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#aexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAexpr(DrawScriptParser.AexprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#aexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAexpr(DrawScriptParser.AexprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#parcela}.
+	 * @param ctx the parse tree
+	 */
+	void enterParcela(DrawScriptParser.ParcelaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#parcela}.
+	 * @param ctx the parse tree
+	 */
+	void exitParcela(DrawScriptParser.ParcelaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#fator}.
+	 * @param ctx the parse tree
+	 */
+	void enterFator(DrawScriptParser.FatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#fator}.
+	 * @param ctx the parse tree
+	 */
+	void exitFator(DrawScriptParser.FatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermo(DrawScriptParser.TermoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermo(DrawScriptParser.TermoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#argList}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgList(DrawScriptParser.ArgListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#argList}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgList(DrawScriptParser.ArgListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void enterDesign(DrawScriptParser.DesignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#design}.
+	 * @param ctx the parse tree
+	 */
+	void exitDesign(DrawScriptParser.DesignContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void enterShape(DrawScriptParser.ShapeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#shape}.
+	 * @param ctx the parse tree
+	 */
+	void exitShape(DrawScriptParser.ShapeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterProperty(DrawScriptParser.PropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitProperty(DrawScriptParser.PropertyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DrawScriptParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterColor(DrawScriptParser.ColorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DrawScriptParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitColor(DrawScriptParser.ColorContext ctx);
 }

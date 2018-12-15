@@ -1,24 +1,31 @@
-teste = 2;
-teste2 = 15;
-i = 0;
+skt squareView = square 100 red;
+skt rectangleView = rectangle 100 50 blue;
+skt ovalView = oval 20 50 black;
+skt pentagonView = pentagon 30 40 purple;
+skt octagonView = octagon 30 40 green;
+skt circleView = circle 40 pink;
+skt triangleView = triangle 50 50 yellow;
+skt trapezioView = trapezio 40 30 #FBC5E4;
+draw (1,1,squareView);
+draw(110,1,rectangleView);
+draw(250,35,ovalView);
+draw(40,110,pentagonView);
+draw(80,110,octagonView);
+draw(150,150,circleView);
+draw(200,120,triangleView);
+draw(300,150,trapezioView);
 
-while cos(teste2) != 1 do {
-	teste2 = teste2 - 1;
+a = 2;
+b = 1;
 
-	if teste2 % 2 == 0 then {
-		teste = 5 / teste;
-
-		if teste == 2.5 then {
-			teste3 = teste;
-		}
-	}
-	else{
-		i = i + 1;	
-	}
+if (a !== b) then {
+    write(5);
 }
 
-write(i);
+if (a === 2) then {
+    write(6);
+}
 
-if cos(0) == 1 then xablau = 2;
-
-teste;
+else {
+    write (7);
+}
